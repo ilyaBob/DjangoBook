@@ -1,0 +1,95 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# --- Virtualenv ---
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+
+# --- Django specific ---
+*.log
+*.pot
+*.pyc
+*.mo
+db.sqlite3
+media/
+staticfiles/
+static_root/
+local_settings.py
+database/
+
+# --- Migrations (optional) ---
+ */migrations/*
+ !*/migrations/__init__.py
+
+# --- IDEs / Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- Environment / Config ---
+.env
+.env.local
+*.ini
+*.cfg
+*.yaml
+*.yml
+*.json
+secrets.json
+
+# --- Docker ---
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+/tmp/
+logs/
+
+# --- Coverage / Tests ---
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+pytest_cache/
+*.cover
+
+# --- MyPy / Type checking ---
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# --- PyCharm Django support ---
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/inspectionProfiles/
+.idea/**/shelf/
+
+node_modules/
+build/
+dist/
+*.lock
+package-lock.json
+yarn.lock
