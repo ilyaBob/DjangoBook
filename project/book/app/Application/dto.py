@@ -10,8 +10,14 @@ class CreateBookDTO:
     time: str
     is_published: bool = False
     author_id: Optional[int] = None
+    reader_id: Optional[int] = None
 
 
 @dataclass
 class CreateAuthorDTO:
+    title: str
+
+
+@dataclass
+class CreateReaderDTO:
     title: str

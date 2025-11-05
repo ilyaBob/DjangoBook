@@ -1,7 +1,7 @@
-from .dto import CreateAuthorDTO, CreateBookDTO
+from .dto import CreateAuthorDTO, CreateBookDTO, CreateReaderDTO
 from ..Domain import entities
 from ..Domain.value_objects import Slug
-from ..Infrastructure.repositories import BookRepository, AuthorRepository
+from ..Infrastructure.repositories import BookRepository, AuthorRepository, ReaderRepository
 from dataclasses import asdict
 
 class BookService:
@@ -27,3 +27,13 @@ class AuthorService:
         dto_dict = asdict(dto)
         data = entities.Author(**dto_dict, slug=slug)
         self.author_repo.create(data)
+
+class ReaderService:
+    def __init__(self, repo: ReaderRepository):
+        self.repo = repo
+
+    def create(self, data: CreateReaderDTO):
+        slug = Slug.format_str(data.title)
+        dto_dict = asdict(data)
+        data = entities.Reader(**dto_dict, slug = slug)
+        self.repo.create(data)

@@ -17,11 +17,9 @@ book_service = BookService(repo)
 
 
 def index(request):
-
-    book_list = book_service.list()
     data = {
         'title': 'aaaaaaaaaaaa',
-        'books': book_list,
+        'books': book_service.list(),
     }
     return render(request, 'web/book/index.html', data)
 

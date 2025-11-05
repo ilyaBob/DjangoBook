@@ -1,6 +1,6 @@
 from dataclasses import asdict
 
-from .models import Book, Author
+from .models import Book, Author, Reader
 from ..Domain import entities
 
 
@@ -19,3 +19,9 @@ class AuthorRepository():
         data = asdict(data)
         author = Author(**data)
         author.save()
+
+class ReaderRepository():
+    def create(self, data: entities.Reader) -> None:
+        data = asdict(data)
+        reader = Reader(**data)
+        reader.save()
