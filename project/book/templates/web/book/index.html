@@ -1,0 +1,140 @@
+{% extends 'web/layouts/index.html' %}
+
+{% block content %}
+
+
+<section class="sect">
+    <div class="sect__header d-flex">
+        <h2 class="sect__title flex-grow-1">Новые аудиокниги</h2>
+
+
+        <div class="sect__btns grid-select d-flex">
+            <div class="grid-select__btn" title="Выводить списком" data-grid="grid-1"><span
+                    class="fal fa-th-list"></span></div>
+            <div class="grid-select__btn is-active" title="Большие постеры" data-grid="grid-2"><span
+                    class="fal fa-th-large"></span></div>
+        </div>
+
+    </div>
+    <div class="sect__content" id="dle-content">
+
+        {% for book in books %}
+        <a class="poster grid-item d-flex fd-column has-overlay"
+           href="{{ book.get_absolute_url }}">
+            <div class="poster__img img-responsive img-responsive--portrait img-fit-cover">
+                <link rel="preload" as="image"
+                      href="https://z3.fantnova.com/uploads/posts/2025-10/andrey-pervuhin-tovarisch-mag.webp">
+                <img data-src="/uploads/posts/2025-10/andrey-pervuhin-tovarisch-mag.webp"
+                     src="images/no-img.png" alt="{{ book.title }} - Андрей Первухин">
+                <div class="poster__label">{{ book.time }}</div>
+                <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span>
+                </div>
+
+            </div>
+            <div class="poster__desc">
+                <h3 class="poster__title">{{ book.title }}</h3>
+                <ul class="poster__subtitle ws-nowrap"></ul>
+                <div class="poster__text line-clamp">{{ book.description }}</div>
+            </div>
+        </a>
+        {% endfor %}
+
+        <div class="pagination ignore-select" id="pagination">
+
+            <div class="pagination__btn-loader d-flex jc-center ai-center"><a
+                    href="https://z3.fantnova.com/page/2/">Загрузить еще<span
+                    class="fal fa-ellipsis-h"></span></a></div>
+
+
+            <div class="pagination__pages d-flex jc-center"><span>1</span> <a
+                    href="https://z3.fantnova.com/page/2/">2</a> <a
+                    href="https://z3.fantnova.com/page/3/">3</a> <a
+                    href="https://z3.fantnova.com/page/4/">4</a> <a
+                    href="https://z3.fantnova.com/page/5/">5</a> <a
+                    href="https://z3.fantnova.com/page/6/">6</a> <a
+                    href="https://z3.fantnova.com/page/7/">7</a> <a
+                    href="https://z3.fantnova.com/page/8/">8</a> <a
+                    href="https://z3.fantnova.com/page/9/">9</a> <a
+                    href="https://z3.fantnova.com/page/10/">10</a> <span class="nav_ext">...</span> <a
+                    href="https://z3.fantnova.com/page/865/">865</a></div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<!--<div class="filter-block order-first d-none">-->
+<!--    <form data-dlefilter="dle-filter" class="filter-block__form">-->
+<!--        <div class="filter-block__cell">-->
+<!--            <div class="filter-block__cell-content filter-block__cell-content&#45;&#45;two-columns">-->
+<!--                <select name="cat">-->
+<!--                    <option value="">Выберите жанр</option>-->
+<!--                    <option value="35">Аниме</option>-->
+<!--                    <option value="49">НЕДОСТУПНО</option>-->
+<!--                    <option value="47">Альтернативная история</option>-->
+<!--                    <option value="36">Ранобэ</option>-->
+<!--                    <option value="22">Фантастика</option>-->
+<!--                    <option value="14">Боевая фантастика</option>-->
+<!--                    <option value="16">Героическая фантастика</option>-->
+<!--                    <option value="19">Детективная фантастика</option>-->
+<!--                    <option value="34">Детская фантастика</option>-->
+<!--                    <option value="9">Зарубежная фантастика</option>-->
+<!--                    <option value="13">Историческая фантастика</option>-->
+<!--                    <option value="20">Космическая фантастика</option>-->
+<!--                    <option value="17">Любовно-фантастические романы</option>-->
+<!--                    <option value="10">Научная фантастика</option>-->
+<!--                    <option value="11">Социальная фантастика</option>-->
+<!--                    <option value="21">Юмористическая фантастика</option>-->
+<!--                    <option value="23">Фэнтези</option>-->
+<!--                    <option value="25">Боевое фэнтези</option>-->
+<!--                    <option value="26">Городское фэнтези</option>-->
+<!--                    <option value="27">Героическое фэнтези</option>-->
+<!--                    <option value="29">Детективное фэнтези</option>-->
+<!--                    <option value="28">Зарубежное фэнтези</option>-->
+<!--                    <option value="31">Историческое фэнтези</option>-->
+<!--                    <option value="24">Любовное фэнтези</option>-->
+<!--                    <option value="48">Эротическое фэнтези</option>-->
+<!--                    <option value="30">Юмористическое фэнтези</option>-->
+<!--                    <option value="37">Сеттинги</option>-->
+<!--                    <option value="38">Вселенная Метро</option>-->
+<!--                    <option value="39">S.T.A.L.K.E.R.</option>-->
+<!--                    <option value="40">S-T-I-K-S</option>-->
+<!--                    <option value="41">Warhammer 40000</option>-->
+<!--                    <option value="32">ЛитРПГ</option>-->
+<!--                    <option value="45">Короткие рассказы</option>-->
+<!--                    <option value="15">Попаданцы</option>-->
+<!--                    <option value="33">Постапокалипсис</option>-->
+<!--                    <option value="18">Киберпанк</option>-->
+<!--                    <option value="12">Стимпанк</option>-->
+<!--                    <option value="44">Ужасы/Мистика</option>-->
+
+<!--                </select>-->
+
+<!--                <input type="text" name="avtor" placeholder="Автор">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="filter-block__cell">-->
+<!--            <div class="filter-block__cell-content filter-block__cell-content&#45;&#45;two-columns">-->
+
+<!--                <input type="text" name="chitaet" placeholder="Исполнитель">-->
+<!--                <input type="text" name="l.title" placeholder="Впишите название книги">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="filter-block__cell">-->
+<!--            <div class="filter-block__cell-content filter-block__cell-content&#45;&#45;two-columns">-->
+<!--                <input type="text" name="f.year" placeholder="Впишите год от">-->
+<!--                <input type="text" name="t.year" placeholder="до">-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="filter-block__cell filter-block__cell&#45;&#45;padding">-->
+<!--            <div class="filter-block__cell-content filter-block__cell-content&#45;&#45;two-columns">-->
+<!--                <input type="button" data-dlefilter="submit" value="Подобрать">-->
+<!--                <input type="button" data-dlefilter="reset" value="Сбросить">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+{% endblock %}

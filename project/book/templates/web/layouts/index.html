@@ -1,0 +1,777 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{{title|default:"book_title"}}</title>
+    <meta name="charset" content="utf-8">
+    <meta name="title" content="FanTNova.com - просто фантастические аудиокниги">
+    <meta name="description"
+          content="У нас вы найдете только лучшие аудиокниги жанра фантастика и фэнтези различных авторов и декламаторов">
+    <meta name="keywords" content="">
+    <meta name="generator" content="DataLife Engine (https://dle-news.ru)">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://z3.fantnova.com/">
+    <link rel="alternate" type="application/rss+xml" title="FanTNova.com - просто фантастические аудиокниги RSS"
+          href="https://z3.fantnova.com/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="FanTNova.com - просто фантастические аудиокниги RSS Turbo"
+          href="https://z3.fantnova.com/rssturbo.xml">
+    <link rel="alternate" type="application/rss+xml" title="FanTNova.com - просто фантастические аудиокниги RSS Dzen"
+          href="https://z3.fantnova.com/rssdzen.xml">
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="FanTNova.com - просто фантастические аудиокниги"
+          href="https://z3.fantnova.com/index.php?do=opensearch">
+    <link rel="preconnect" href="https://z3.fantnova.com/" fetchpriority="high">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="FanTNova.com - просто фантастические аудиокниги">
+    <meta property="twitter:description"
+          content="У нас вы найдете только лучшие аудиокниги жанра фантастика и фэнтези различных авторов и декламаторов">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="FanTNova.com - просто фантастические аудиокниги">
+    <meta property="og:title" content="FanTNova.com - просто фантастические аудиокниги">
+    <meta property="og:description"
+          content="У нас вы найдете только лучшие аудиокниги жанра фантастика и фэнтези различных авторов и декламаторов">
+
+    <meta name="google-site-verification" content="IB1pqLTEekv3zkuMajTtPUB1GwBC2Oj0pVbXkIxby9s">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#303d4a">
+
+
+    <link rel="preload" as="image" href="/templates/popcornie-dark/images/bg.jpg">
+    <link rel="preload" href="{% static 'book/css/common.css' %}" as="style">
+    <link rel="preload" href="{% static 'book/css/styles.css' %}" as="style">
+    <link rel="preload" href="{% static 'book/css/engine.css' %}" as="style">
+    <link rel="preload" href="{% static 'book/css/fontawesome.css' %}" as="style">
+
+
+    <link rel="preload" href="/templates/popcornie-dark/webfonts/manrope-400.woff2" as="font" type="font/woff2"
+          crossorigin="">
+    <link rel="preload" href="/templates/popcornie-dark/webfonts/manrope-500.woff2" as="font" type="font/woff2"
+          crossorigin="">
+    <link rel="preload" href="/templates/popcornie-dark/webfonts/fredoka-one-400.woff2" as="font" type="font/woff2"
+          crossorigin="">
+    <link rel="preload" href="/templates/popcornie-dark/webfonts/fa-light-300.woff2" as="font" type="font/woff2"
+          crossorigin="">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link href="{% static 'book/css/common.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'book/css/styles.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'book/css/engine.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'book/css/fontawesome.css' %}" type="text/css" rel="stylesheet">
+    <!-- Caramel -->
+    <script>window.yaContextCb = window.yaContextCb || [] </script>
+    <script async="" src="js/context.js"></script>
+    <script async="" src="js/caramel.js"></script>
+    <script>window.CaramelDomain = "a-fantastic.com"</script>
+    <!-- /Caramel -->
+    <script>
+
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/savetraff.js?ver=7&page_by_page_redirect=1&network_timeout=9000&new_domain=afantastic.org&verify_meta=%3Cmeta+name%3D%22savetraff%22+content%3D%221%22%3E&admin_path=fantylulun.php&disable_redirect_urls=%2Findex.php%3Fdo%3Ddownload%26id%3D%7C%2Frobots.txt%7C%2Frobots_main.txt%7C%2Frobots_subdomain.txt&multiple_new_domains=z4.fantnova.com%7Cfantvox.org");
+        } else {
+            console.log("error");
+        }
+
+    </script>
+    <meta name="savetraff" content="1">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="wrapper-container wrapper-main d-flex fd-column">
+
+        <header class="header d-flex ai-center vw100">
+            <div class="header__search d-none">
+                <form id="quicksearch" method="post">
+                    <input type="hidden" name="do" value="search">
+                    <input type="hidden" name="subaction" value="search">
+                    <div class="header__search-box">
+                        <input id="ajax_search" name="story" placeholder="Поиск по сайту..." type="text"
+                               autocomplete="off">
+                        <button type="submit" class="search-btn"><span class="fal fa-search"></span></button>
+                    </div>
+                </form>
+            </div>
+            <a href="/" class="logo header__logo">
+                <div class="logo__title">FantNova.com</div>
+                <p class="logo__caption">Эпичная фантастика</p>
+            </a>
+            <ul class="header__menu d-flex flex-grow-1 js-this-in-mobile-menu">
+                <li><a href="/"><span class="fal fa-home"></span>Главная</a></li>
+            </ul>
+            <div class="header__btn-search btn-icon js-toggle-search"><span class="fal fa-search"></span></div>
+            <div class="btn-accent centered-content js-show-login">Войти</div>
+
+            <div class="header__btn-menu d-none js-show-mobile-menu"><span class="fal fa-bars"></span></div>
+        </header>
+
+        <!-- END HEADER -->
+
+        <div class="content flex-grow-1 cols d-flex">
+
+
+<!--            <div class="carou">-->
+<!--                <div class="carou__content" id="owl-carou"><a class="top d-flex fd-column has-overlay"-->
+<!--                                                              href="https://z3.fantnova.com/16071-zhizn-lekarja-s-nulja-mechnikov-tom-1-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-04/5f6c17ea5dca0cad421ee11861977104.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-04/5f6c17ea5dca0cad421ee11861977104.webp"-->
+<!--                             src="images/no-img.png"-->
+<!--                             alt="Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора в маги - Виктор-->
+<!--                                Молотов, Игорь Молотов-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/18641-sergey-tarmashev-kazhdomu-svoe.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe.webp"-->
+<!--                             src="images/no-img.png" alt="Каждому своё 1 - Сергей Тармашев">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Каждому своё 1 - Сергей Тармашев</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/15673-erofey-trofimov-brodyaga-draku-zakazyvali.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-03/erofey-trofimov-brodyaga-draku-zakazyvali.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-03/erofey-trofimov-brodyaga-draku-zakazyvali.webp"-->
+<!--                             src="images/no-img.png" alt="Бродяга 3. Драку заказывали - Ерофей Трофимов">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Бродяга 3. Драку заказывали - Ерофей Трофимов</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/14364-evgeniy-garcevich-otmorozhennyy.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-12/evgeniy-garcevich-otmorozhennyy.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-12/evgeniy-garcevich-otmorozhennyy.webp"-->
+<!--                             src="images/no-img.png" alt="Отмороженный 1 - Евгений Гарцевич">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Отмороженный 1 - Евгений Гарцевич</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/12374-k-vershine-1-bezrodysh-predzeme-andrej-rymin.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-07/bezrodysh-predzeme-andrej-rymin.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-07/bezrodysh-predzeme-andrej-rymin.webp"-->
+<!--                             src="images/no-img.png" alt="К Вершине 1. Безродыш. Предземье - Андрей Рымин">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">К Вершине 1. Безродыш. Предземье - Андрей Рымин</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/11329-lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-05/lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-05/lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.webp"-->
+<!--                             src="images/no-img.png" alt="Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/16072-zhizn-lekarja-s-nulja-mechnikov-tom-2-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-04/f1d88c61b4b13633746dc10de3aba6ed.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-04/f1d88c61b4b13633746dc10de3aba6ed.webp"-->
+<!--                             src="images/no-img.png"-->
+<!--                             alt="Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в маги - Виктор-->
+<!--                                Молотов, Игорь Молотов-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/14717-evgeniy-garcevich-otmorozhennyy-2-0.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-01/evgeniy-garcevich-otmorozhennyy-2-0.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-01/evgeniy-garcevich-otmorozhennyy-2-0.webp"-->
+<!--                             src="images/no-img.png" alt="Отмороженный 2.0 - Евгений Гарцевич">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Отмороженный 2.0 - Евгений Гарцевич</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/18642-sergey-tarmashev-kazhdomu-svoe-2.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe-2.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe-2.webp"-->
+<!--                             src="images/no-img.png" alt="Каждому своё 2 - Сергей Тармашев">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Каждому своё 2 - Сергей Тармашев</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/12673-k-vershine-2-bespravysh-predzeme-andrej-rymin.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-08/0ee7308b54e27a29fb5a2ecfade85ecd.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-08/0ee7308b54e27a29fb5a2ecfade85ecd.webp"-->
+<!--                             src="images/no-img.png" alt="К вершине 2. Бесправыш. Предземье - Андрей Рымин">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">К вершине 2. Бесправыш. Предземье - Андрей Рымин</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/19034-viktor-molotov-mechnikov-tom-3-zhivoe-proklyate.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-10/viktor-molotov-mechnikov-tom-3-zhivoe-proklyate.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-10/viktor-molotov-mechnikov-tom-3-zhivoe-proklyate.webp"-->
+<!--                             src="images/no-img.png"-->
+<!--                             alt="Жизнь Лекаря с нуля. Мечников. Том 3. Живое проклятье -  Виктор Молотов, Игорь Молотов">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Жизнь Лекаря с нуля. Мечников. Том 3. Живое проклятье - Виктор-->
+<!--                                Молотов, Игорь Молотов-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/18197-erofey-trofimov-krechet-sluchaynyy-shag.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-08/erofey-trofimov-krechet-sluchaynyy-shag.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-08/erofey-trofimov-krechet-sluchaynyy-shag.webp"-->
+<!--                             src="images/no-img.png" alt="Кречет. Случайный шаг - Ерофей Трофимов">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Кречет. Случайный шаг - Ерофей Трофимов</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/12674-k-vershine-3-bezdomysh-predzeme-andrej-rymin.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-08/8dfc7b5a2dddbd2a51c118f319881b37.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-08/8dfc7b5a2dddbd2a51c118f319881b37.webp"-->
+<!--                             src="images/no-img.png" alt="К вершине 3. Бездомыш. Предземье - Андрей Рымин">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">К вершине 3. Бездомыш. Предземье - Андрей Рымин</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/14718-evgeniy-garcevich-otmorozhennyy-3-0.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-01/evgeniy-garcevich-otmorozhennyy-3-0.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-01/evgeniy-garcevich-otmorozhennyy-3-0.webp"-->
+<!--                             src="images/no-img.png" alt="Отмороженный 3.0 - Евгений Гарцевич">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Отмороженный 3.0 - Евгений Гарцевич</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/14347-andrey-rymin-bezverysh-zemlya.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2024-12/andrey-rymin-bezverysh-zemlya.webp">-->
+<!--                        <img data-src="/uploads/posts/2024-12/andrey-rymin-bezverysh-zemlya.webp"-->
+<!--                             src="images/no-img.png" alt="К вершине 7. Безверыш. Земля - Андрей Рымин">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">К вершине 7. Безверыш. Земля - Андрей Рымин</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a><a class="top d-flex fd-column has-overlay"-->
+<!--                       href="https://z3.fantnova.com/18811-sergey-tarmashev-kazhdomu-svoe-3.html">-->
+<!--                    <div class="top__img img-fit-cover img-responsive img-responsive&#45;&#45;portrait img-mask">-->
+<!--                        <link rel="preload" as="image"-->
+<!--                              href="https://z3.fantnova.com/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe-3.webp">-->
+<!--                        <img data-src="/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe-3.webp"-->
+<!--                             src="images/no-img.png" alt="Каждому своё 3 - Сергей Тармашев">-->
+<!--                        <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span></div>-->
+<!--                        <div class="top__desc">-->
+<!--                            <div class="top__title ">Каждому своё 3 - Сергей Тармашев</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a></div>-->
+
+<!--                <div class="carou__desc d-flex fd-column jc-center">-->
+<!--                    <div class="carou__title">Топ аудиокниг</div>-->
+<!--                    <div class="carou__caption">Интересные новинки по версии слушателей</div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+            <aside class="col-side">
+
+
+                <div class="side-block js-this-in-mobile-menu">
+                    <div class="side-block__title">Жанры</div>
+                    <ul class="side-block__content nav">
+                        <li class="submenu">
+                            <a href="/anime">Аниме</a>
+                            <div class="nav__btn"><span class="fal fa-plus"></span></div>
+                            <ul class="nav__hidden">
+                                <li><a href="/ranobe">Ранобэ</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="/fantastika">Фантастика</a>
+                            <div class="nav__btn"><span class="fal fa-plus"></span></div>
+                            <ul class="nav__hidden">
+                                <li><a href="/boyevaya-fantastika">Боевая фантастика</a></li>
+                                <li><a href="/geroicheskaya-fantastika">Героическая фантастика</a></li>
+                                <li><a href="/detektivnaya-fantastika">Детективная фантастика</a></li>
+                                <li><a href="/detskaya-fantastika">Детская фантастика</a></li>
+                                <li><a href="/zarubezhnaya-fantastika">Зарубежная фантастика</a></li>
+                                <li><a href="/istoricheskaya-fantastika">Историческая фантастика</a></li>
+                                <li><a href="/kosmicheskaya-fantastika">Космическая фантастика</a></li>
+                                <li><a href="/nauchnaya-fantastika">Научная фантастика</a></li>
+                                <li><a href="/sotsialnaya-fantastika">Социальная фантастика</a></li>
+                                <li><a href="/lyubovno-fantasticheskiye-romany">Фантастические романы</a></li>
+                                <li><a href="/yumoristicheskaya-fantastika">Юмористическая-фантастика</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="/fentezi">Фэнтези</a>
+                            <div class="nav__btn"><span class="fal fa-plus"></span></div>
+                            <ul class="nav__hidden">
+                                <li><a href="/boyevoye-fentezi">Боевое фэнтези</a></li>
+                                <li><a href="/gorodskoye-fentezi">Городское фэнтези</a></li>
+                                <li><a href="/geroicheskoye-fentezi">Героическое фэнтези</a></li>
+                                <li><a href="/detektivnoye-fentezi">Детективное фэнтези</a></li>
+                                <li><a href="/zarubezhnoye-fentezi">Зарубежное фэнтези</a></li>
+                                <li><a href="/istoricheskoye-fentezi">Историческое фэнтези</a></li>
+                                <li><a href="/lyubovnoye-fentezi">Любовное фэнтези</a></li>
+                                <li><a href="/eroticheskoye-fentezi">Эротическое фэнтези</a></li>
+                                <li><a href="/yumoristicheskoye-fentezi">Юмористическое фэнтези</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="/settingi">Сеттинги</a>
+                            <div class="nav__btn"><span class="fal fa-plus"></span></div>
+                            <ul class="nav__hidden">
+                                <li><a href="/vselennaya-metro">Вселенная Метро</a></li>
+                                <li><a href="/stiks">S-T-I-K-S</a></li>
+                                <li><a href="/stalker">S.T.A.L.K.E.R.</a></li>
+                                <li><a href="/warhammer-40000">Warhammer 40000</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/alternativnaya-istoriya">Альтернативная история</a></li>
+                        <li><a href="/kiberpank">Киберпанк</a></li>
+                        <li><a href="/korotkiye-rasskazy">Короткие рассказы</a></li>
+                        <li><a href="/litrpg">ЛитРПГ</a></li>
+                        <li><a href="/popadantsy">Попаданцы</a></li>
+                        <li><a href="/postapokalipsis">Постапокалипсис</a></li>
+                        <li><a href="/stimpank">Стимпанк</a></li>
+                        <li><a href="/uzhasy-mistika">Ужасы/Мистика</a></li>
+
+                    </ul>
+                </div>
+<!--                <div class="side-block">-->
+<!--                    <div class="side-block__title">Топ недели</div>-->
+<!--                    <div class="side-block__content">-->
+<!--                        <a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/16071-zhizn-lekarja-s-nulja-mechnikov-tom-1-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+<!--                            <div class="popular__img img-fit-cover">-->
+<!--                                <img data-src="/uploads/posts/2025-04/5f6c17ea5dca0cad421ee11861977104.webp"-->
+<!--                                     src="images/no-img.png"-->
+<!--                                     alt="Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+<!--                            </div>-->
+<!--                            <div class="popular__desc flex-grow-1">-->
+<!--                                <div class="popular__title line-clamp">Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора-->
+<!--                                    в маги - Виктор Молотов, Игорь Молотов-->
+<!--                                </div>-->
+<!--                                <ul class="poster__subtitle">-->
+<!--                                    <li class="ws-nowrap">Фэнтези / Попаданцы / Альтернативная история</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </a><a class="popular d-flex ai-center"-->
+<!--                               href="https://z3.fantnova.com/15673-erofey-trofimov-brodyaga-draku-zakazyvali.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2025-03/erofey-trofimov-brodyaga-draku-zakazyvali.webp"-->
+<!--                                 src="images/no-img.png" alt="Бродяга 3. Драку заказывали - Ерофей Трофимов">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">Бродяга 3. Драку заказывали - Ерофей Трофимов</div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фантастика / Боевая фантастика / Космическая фантастика</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a><a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/16072-zhizn-lekarja-s-nulja-mechnikov-tom-2-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2025-04/f1d88c61b4b13633746dc10de3aba6ed.webp"-->
+<!--                                 src="images/no-img.png"-->
+<!--                                 alt="Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в-->
+<!--                                маги - Виктор Молотов, Игорь Молотов-->
+<!--                            </div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Альтернативная история</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a><a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/18641-sergey-tarmashev-kazhdomu-svoe.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe.webp"-->
+<!--                                 src="images/no-img.png" alt="Каждому своё 1 - Сергей Тармашев">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">Каждому своё 1 - Сергей Тармашев</div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фантастика / Героическая фантастика / Социальная фантастика /-->
+<!--                                    Постапокалипсис-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a><a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/14364-evgeniy-garcevich-otmorozhennyy.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2024-12/evgeniy-garcevich-otmorozhennyy.webp"-->
+<!--                                 src="images/no-img.png" alt="Отмороженный 1 - Евгений Гарцевич">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">Отмороженный 1 - Евгений Гарцевич</div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фантастика / Боевая фантастика / Попаданцы / Постапокалипсис</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a><a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/12374-k-vershine-1-bezrodysh-predzeme-andrej-rymin.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2024-07/bezrodysh-predzeme-andrej-rymin.webp"-->
+<!--                                 src="images/no-img.png" alt="К Вершине 1. Безродыш. Предземье - Андрей Рымин">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">К Вершине 1. Безродыш. Предземье - Андрей Рымин</div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Боевое фэнтези / Героическое фэнтези</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a><a class="popular d-flex ai-center"-->
+<!--                           href="https://z3.fantnova.com/11329-lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.html">-->
+<!--                        <div class="popular__img img-fit-cover">-->
+<!--                            <img data-src="/uploads/posts/2024-05/lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.webp"-->
+<!--                                 src="images/no-img.png" alt="Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики">-->
+<!--                        </div>-->
+<!--                        <div class="popular__desc flex-grow-1">-->
+<!--                            <div class="popular__title line-clamp">Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики-->
+<!--                            </div>-->
+<!--                            <ul class="poster__subtitle">-->
+<!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Юмористическое фэнтези / Боевое фэнтези</li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="side-block">-->
+<!--                    <div class="side-block__title">Комментируют</div>-->
+<!--                    <div class="side-block__content">-->
+<!--                        <div class="lcomm">-->
+<!--                            <div class="lcomm__meta d-flex ai-center">-->
+<!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость ольга</div>-->
+<!--                                <div class="lcomm__date">01.11.25</div>-->
+<!--                            </div>-->
+<!--                            <div class="lcomm__text">очень понравилась история, жаль что продолжение только пишется,-->
+<!--                                озвучка отличная-->
+<!--                            </div>-->
+<!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+<!--                               href="https://z3.fantnova.com/18806-evgeniy-astahov-imperator-pogranichya-3.html"><span-->
+<!--                                    class="fal fa-arrow-circle-right"></span>Император Пограничья. Книга 3 - Саша-->
+<!--                                Токсик, Евгений Астахов</a>-->
+<!--                        </div>-->
+<!--                        <div class="lcomm">-->
+<!--                            <div class="lcomm__meta d-flex ai-center">-->
+<!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость Ольга</div>-->
+<!--                                <div class="lcomm__date">01.11.25</div>-->
+<!--                            </div>-->
+<!--                            <div class="lcomm__text">Полнейшая чушь! Не стоит терять время на эти странные мысленные-->
+<!--                                выверты автора-->
+<!--                            </div>-->
+<!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+<!--                               href="https://z3.fantnova.com/19445-dzhuliya-princ-mladshaya-pyataya-zhena-drakona-zhelaet-razvestis.html"><span-->
+<!--                                    class="fal fa-arrow-circle-right"></span>Младшая пятая жена дракона желает-->
+<!--                                развестись 1 - Джулия Принц</a>-->
+<!--                        </div>-->
+<!--                        <div class="lcomm">-->
+<!--                            <div class="lcomm__meta d-flex ai-center">-->
+<!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Лучезар</div>-->
+<!--                                <div class="lcomm__date">01.11.25</div>-->
+<!--                            </div>-->
+<!--                            <div class="lcomm__text">Книга хорошо зайдёт тем, кто любит и живëт слухами и сплетнями, она-->
+<!--                                для вас.-->
+<!--                            </div>-->
+<!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+<!--                               href="https://z3.fantnova.com/19404-serzh-vinterkey-revizor-vozvraschenie-v-sssr-46.html"><span-->
+<!--                                    class="fal fa-arrow-circle-right"></span>Ревизор: Возвращение в СССР. Книга 46 - -->
+<!--                                Серж Винтеркей</a>-->
+<!--                        </div>-->
+<!--                        <div class="lcomm">-->
+<!--                            <div class="lcomm__meta d-flex ai-center">-->
+<!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Дмидимир и Влатрий Медвепутовы</div>-->
+<!--                                <div class="lcomm__date">01.11.25</div>-->
+<!--                            </div>-->
+<!--                            <div class="lcomm__text">Андрей, не смог слушать крысинные гонки к сожалению. Читает автор,-->
+<!--                                а он-->
+<!--                            </div>-->
+<!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+<!--                               href="https://z3.fantnova.com/18950-serzh-vinterkey-revizor-vozvraschenie-v-sssr-44.html"><span-->
+<!--                                    class="fal fa-arrow-circle-right"></span>Ревизор: возвращение в СССР. Книга 44 - -->
+<!--                                Серж Винтеркей</a>-->
+<!--                        </div>-->
+<!--                        <div class="lcomm">-->
+<!--                            <div class="lcomm__meta d-flex ai-center">-->
+<!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость Наталья</div>-->
+<!--                                <div class="lcomm__date">31.10.25</div>-->
+<!--                            </div>-->
+<!--                            <div class="lcomm__text">Нет озвученного продолжения (((</div>-->
+<!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+<!--                               href="https://z3.fantnova.com/19284-grinberga-oksana-sirotka-v-akademii-drakonov-doch-pirata.html"><span-->
+<!--                                    class="fal fa-arrow-circle-right"></span>Сиротка в Академии Драконов 2. Дочь пирата-->
+<!--                                - Оксана Гринберга</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            </aside>
+
+            <!-- END COL SIDE -->
+            <main class="col-main flex-grow-1 d-flex fd-column grid-2" id="grid">
+                {% block content %}
+                {% endblock %}
+            </main>
+
+            <!-- END COL MAIN -->
+
+        </div>
+
+        <!-- END CONTENT -->
+
+        <footer class="footer d-flex ai-center">
+            <a href="/pravoobladatelyam.html" class="btn-accent centered-content">Правообладателям</a>
+
+            <div class="footer__text flex-grow-1">
+                © 2025 "FantNova.com" (18+) Слушайте лучшие фантастические и фэнтезийные аудиокниги онлайн. Наши
+                партнеры: <a href="https://audiodetectiv.org" target="_blank" rel="noopener noreferrer">AudioDetectiv.org</a>
+            </div>
+
+            <div class="footer__counter">
+            </div>
+        </footer>
+
+        <!-- END FOOTER -->
+
+    </div>
+
+    <!-- END WRAPPER-MAIN -->
+
+</div>
+
+<!-- END WRAPPER -->
+
+
+<div class="login login--not-logged d-none">
+    <div class="login__header d-flex jc-space-between ai-center">
+        <div class="login__title stretch-free-width ws-nowrap">Войти <a href="/?do=register">Регистрация</a></div>
+        <div class="login__close"><span class="fal fa-times"></span></div>
+    </div>
+    <form method="post">
+        <div class="login__content">
+            <div class="login__row">
+                <div class="login__caption">Логин:</div>
+                <div class="login__input"><input type="text" name="login_name" id="login_name" placeholder="Ваш логин">
+                </div>
+                <span class="fal fa-user"></span>
+            </div>
+            <div class="login__row">
+                <div class="login__caption">Пароль: <a href="https://z3.fantnova.com/index.php?do=lostpassword">Забыли
+                    пароль?</a></div>
+                <div class="login__input"><input type="password" name="login_password" id="login_password"
+                                                 placeholder="Ваш пароль"></div>
+                <span class="fal fa-lock"></span>
+            </div>
+            <label class="login__row checkbox" for="login_not_save">
+                <input type="checkbox" name="login_not_save" id="login_not_save" value="1">
+                <span>Не запоминать меня</span>
+            </label>
+            <div class="login__row">
+                <button onclick="submit();" type="submit" title="Вход">Войти на сайт</button>
+                <input name="login" type="hidden" id="login" value="submit">
+            </div>
+        </div>
+        <div class="login__social">
+            <div class="login__social-caption">Или войти через</div>
+            <div class="login__social-btns">
+
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="index.php"></script>
+<script src="index_1.php" defer=""></script>
+<script src="js/libs.js"></script>
+<script>
+    <!--
+    var dle_root = '/';
+    var dle_admin = '';
+    var dle_login_hash = 'f06ab6f6294092631a41818e5c28fa29c6a43257';
+    var dle_group = 5;
+    var dle_skin = 'popcornie-dark';
+    var dle_wysiwyg = '-1';
+    var quick_wysiwyg = '2';
+    var dle_min_search = '2';
+    var dle_act_lang = ["Да", "Нет", "Ввод", "Отмена", "Сохранить", "Удалить", "Загрузка. Пожалуйста, подождите..."];
+    var menu_short = 'Быстрое редактирование';
+    var menu_full = 'Полное редактирование';
+    var menu_profile = 'Просмотр профиля';
+    var menu_send = 'Отправить сообщение';
+    var menu_uedit = 'Админцентр';
+    var dle_info = 'Информация';
+    var dle_confirm = 'Подтверждение';
+    var dle_prompt = 'Ввод информации';
+    var dle_req_field = ["Заполните поле с именем", "Заполните поле с сообщением", "Заполните поле с темой сообщения"];
+    var dle_del_agree = 'Вы действительно хотите удалить? Данное действие невозможно будет отменить';
+    var dle_spam_agree = 'Вы действительно хотите отметить пользователя как спамера? Это приведёт к удалению всех его комментариев';
+    var dle_c_title = 'Отправка жалобы';
+    var dle_complaint = 'Укажите текст Вашей жалобы для администрации:';
+    var dle_mail = 'Ваш e-mail:';
+    var dle_big_text = 'Выделен слишком большой участок текста.';
+    var dle_orfo_title = 'Укажите комментарий для администрации к найденной ошибке на странице:';
+    var dle_p_send = 'Отправить';
+    var dle_p_send_ok = 'Уведомление успешно отправлено';
+    var dle_save_ok = 'Изменения успешно сохранены. Обновить страницу?';
+    var dle_reply_title = 'Ответ на комментарий';
+    var dle_tree_comm = '0';
+    var dle_del_news = 'Удалить статью';
+    var dle_sub_agree = 'Вы действительно хотите подписаться на комментарии к данной публикации?';
+    var dle_unsub_agree = 'Вы действительно хотите отписаться от комментариев к данной публикации?';
+    var dle_captcha_type = '0';
+    var dle_share_interesting = ["Поделиться ссылкой на выделенный текст", "Twitter", "Facebook", "Вконтакте", "Прямая ссылка:", "Нажмите правой клавишей мыши и выберите «Копировать ссылку»"];
+    var DLEPlayerLang = {
+        prev: 'Предыдущий',
+        next: 'Следующий',
+        play: 'Воспроизвести',
+        pause: 'Пауза',
+        mute: 'Выключить звук',
+        unmute: 'Включить звук',
+        settings: 'Настройки',
+        enterFullscreen: 'На полный экран',
+        exitFullscreen: 'Выключить полноэкранный режим',
+        speed: 'Скорость',
+        normal: 'Обычная',
+        quality: 'Качество',
+        pip: 'Режим PiP'
+    };
+    var DLEGalleryLang = {
+        CLOSE: 'Закрыть (Esc)',
+        NEXT: 'Следующее изображение',
+        PREV: 'Предыдущее изображение',
+        ERROR: 'Внимание! Обнаружена ошибка',
+        IMAGE_ERROR: 'Не удалось загрузить изображение',
+        TOGGLE_SLIDESHOW: 'Просмотр слайдшоу',
+        TOGGLE_FULLSCREEN: 'Полноэкранный режим',
+        TOGGLE_THUMBS: 'Включить / Выключить уменьшенные копии',
+        ITERATEZOOM: 'Увеличить / Уменьшить',
+        DOWNLOAD: 'Скачать изображение'
+    };
+    var DLEGalleryMode = 0;
+    var DLELazyMode = 1;
+    var allow_dle_delete_news = false;
+    var dle_search_delay = false;
+    var dle_search_value = '';
+    jQuery(function ($) {
+        FastSearch();
+    });
+    //-->
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.nav__btn', function () {
+            $(this).parent().toggleClass('is-active').children('.nav__hidden').slideToggle(200);
+            $(this).toggleClass('is-active');
+        });
+    });
+</script>
+
+<link href="css/dle_filter.css" type="text/css" rel="stylesheet">
+<script src="dle_filter.js.php"></script>
+<script src="js/dle_filter.js"></script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=104304356', 'ym');
+
+    ym(104304356, 'init', {ssr: true, clickmap: true, accurateTrackBounce: true, trackLinks: true});
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/104304356" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script src="dle_search.js.php"></script>
+
+<!-- caramel-Catfish-Mobile -->
+<div caramel-id="01j78m1n3geh817t7rw0ayghtr"></div>
+<!-- /caramel-Catfish-Mobile -->
+<!-- caramel-Catfish-Desktop -->
+<div caramel-id="01j78m1sche8dfntcfb9zj1x06"></div>
+<!-- /caramel-Catfish-Desktop -->
+
+<script type="text/javascript" src="js/jquery.ttabs.js"></script>
+<script>$('.tt-tabs').ttabs();</script>
+
+<style>
+    .notaval {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        border-radius: 4px;
+        background: #cc7914;
+        color: #fff;
+        font-size: 13px;
+        padding: 3px 10px;
+    }
+</style>
+
+
+</body>
+</html><!-- DataLife Engine Copyright SoftNews Media Group (https://dle-news.ru) -->
