@@ -1,0 +1,232 @@
+
+<aside class="col-side">
+
+
+    <div class="side-block js-this-in-mobile-menu">
+        <div class="side-block__title">Жанры</div>
+        <ul class="side-block__content nav">
+            <!--                        <li class="submenu">-->
+            <!--                            <a href="/anime">Аниме</a>-->
+            <!--                            <div class="nav__btn"><span class="fal fa-plus"></span></div>-->
+            <!--                            <ul class="nav__hidden">-->
+            <!--                                <li><a href="/ranobe">Ранобэ</a></li>-->
+            <!--                            </ul>-->
+            <!--                        </li>-->
+            <!--                        <li class="submenu">-->
+            <!--                            <a href="/fantastika">Фантастика</a>-->
+            <!--                            <div class="nav__btn"><span class="fal fa-plus"></span></div>-->
+            <!--                            <ul class="nav__hidden">-->
+            <!--                                <li><a href="/boyevaya-fantastika">Боевая фантастика</a></li>-->
+            <!--                                <li><a href="/geroicheskaya-fantastika">Героическая фантастика</a></li>-->
+            <!--                                <li><a href="/detektivnaya-fantastika">Детективная фантастика</a></li>-->
+            <!--                                <li><a href="/detskaya-fantastika">Детская фантастика</a></li>-->
+            <!--                                <li><a href="/zarubezhnaya-fantastika">Зарубежная фантастика</a></li>-->
+            <!--                                <li><a href="/istoricheskaya-fantastika">Историческая фантастика</a></li>-->
+            <!--                                <li><a href="/kosmicheskaya-fantastika">Космическая фантастика</a></li>-->
+            <!--                                <li><a href="/nauchnaya-fantastika">Научная фантастика</a></li>-->
+            <!--                                <li><a href="/sotsialnaya-fantastika">Социальная фантастика</a></li>-->
+            <!--                                <li><a href="/lyubovno-fantasticheskiye-romany">Фантастические романы</a></li>-->
+            <!--                                <li><a href="/yumoristicheskaya-fantastika">Юмористическая-фантастика</a></li>-->
+            <!--                            </ul>-->
+            <!--                        </li>-->
+            <!--                        <li class="submenu">-->
+            <!--                            <a href="/fentezi">Фэнтези</a>-->
+            <!--                            <div class="nav__btn"><span class="fal fa-plus"></span></div>-->
+            <!--                            <ul class="nav__hidden">-->
+            <!--                                <li><a href="/boyevoye-fentezi">Боевое фэнтези</a></li>-->
+            <!--                                <li><a href="/gorodskoye-fentezi">Городское фэнтези</a></li>-->
+            <!--                                <li><a href="/geroicheskoye-fentezi">Героическое фэнтези</a></li>-->
+            <!--                                <li><a href="/detektivnoye-fentezi">Детективное фэнтези</a></li>-->
+            <!--                                <li><a href="/zarubezhnoye-fentezi">Зарубежное фэнтези</a></li>-->
+            <!--                                <li><a href="/istoricheskoye-fentezi">Историческое фэнтези</a></li>-->
+            <!--                                <li><a href="/lyubovnoye-fentezi">Любовное фэнтези</a></li>-->
+            <!--                                <li><a href="/eroticheskoye-fentezi">Эротическое фэнтези</a></li>-->
+            <!--                                <li><a href="/yumoristicheskoye-fentezi">Юмористическое фэнтези</a></li>-->
+            <!--                            </ul>-->
+            <!--                        </li>-->
+            <!--                        <li class="submenu">-->
+            <!--                            <a href="/settingi">Сеттинги</a>-->
+            <!--                            <div class="nav__btn"><span class="fal fa-plus"></span></div>-->
+            <!--                            <ul class="nav__hidden">-->
+            <!--                                <li><a href="/vselennaya-metro">Вселенная Метро</a></li>-->
+            <!--                                <li><a href="/stiks">S-T-I-K-S</a></li>-->
+            <!--                                <li><a href="/stalker">S.T.A.L.K.E.R.</a></li>-->
+            <!--                                <li><a href="/warhammer-40000">Warhammer 40000</a></li>-->
+            <!--                            </ul>-->
+            <!--                        </li>-->
+
+            {% for cat in categories %}
+            <li><a href="/uzhasy-mistika">{{cat.title}}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    <!--                <div class="side-block">-->
+    <!--                    <div class="side-block__title">Топ недели</div>-->
+    <!--                    <div class="side-block__content">-->
+    <!--                        <a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/16071-zhizn-lekarja-s-nulja-mechnikov-tom-1-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+    <!--                            <div class="popular__img img-fit-cover">-->
+    <!--                                <img data-src="/uploads/posts/2025-04/5f6c17ea5dca0cad421ee11861977104.webp"-->
+    <!--                                     src="images/no-img.png"-->
+    <!--                                     alt="Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+    <!--                            </div>-->
+    <!--                            <div class="popular__desc flex-grow-1">-->
+    <!--                                <div class="popular__title line-clamp">Жизнь Лекаря с нуля. Мечников. Том 1. Из доктора-->
+    <!--                                    в маги - Виктор Молотов, Игорь Молотов-->
+    <!--                                </div>-->
+    <!--                                <ul class="poster__subtitle">-->
+    <!--                                    <li class="ws-nowrap">Фэнтези / Попаданцы / Альтернативная история</li>-->
+    <!--                                </ul>-->
+    <!--                            </div>-->
+    <!--                        </a><a class="popular d-flex ai-center"-->
+    <!--                               href="https://z3.fantnova.com/15673-erofey-trofimov-brodyaga-draku-zakazyvali.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2025-03/erofey-trofimov-brodyaga-draku-zakazyvali.webp"-->
+    <!--                                 src="images/no-img.png" alt="Бродяга 3. Драку заказывали - Ерофей Трофимов">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">Бродяга 3. Драку заказывали - Ерофей Трофимов</div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фантастика / Боевая фантастика / Космическая фантастика</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a><a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/16072-zhizn-lekarja-s-nulja-mechnikov-tom-2-iz-doktora-v-magi-viktor-molotov-igor-molotov.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2025-04/f1d88c61b4b13633746dc10de3aba6ed.webp"-->
+    <!--                                 src="images/no-img.png"-->
+    <!--                                 alt="Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в маги - Виктор Молотов, Игорь Молотов">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">Жизнь Лекаря с нуля. Мечников. Том 2. Из доктора в-->
+    <!--                                маги - Виктор Молотов, Игорь Молотов-->
+    <!--                            </div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Альтернативная история</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a><a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/18641-sergey-tarmashev-kazhdomu-svoe.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2025-09/sergey-tarmashev-kazhdomu-svoe.webp"-->
+    <!--                                 src="images/no-img.png" alt="Каждому своё 1 - Сергей Тармашев">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">Каждому своё 1 - Сергей Тармашев</div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фантастика / Героическая фантастика / Социальная фантастика /-->
+    <!--                                    Постапокалипсис-->
+    <!--                                </li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a><a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/14364-evgeniy-garcevich-otmorozhennyy.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2024-12/evgeniy-garcevich-otmorozhennyy.webp"-->
+    <!--                                 src="images/no-img.png" alt="Отмороженный 1 - Евгений Гарцевич">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">Отмороженный 1 - Евгений Гарцевич</div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фантастика / Боевая фантастика / Попаданцы / Постапокалипсис</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a><a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/12374-k-vershine-1-bezrodysh-predzeme-andrej-rymin.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2024-07/bezrodysh-predzeme-andrej-rymin.webp"-->
+    <!--                                 src="images/no-img.png" alt="К Вершине 1. Безродыш. Предземье - Андрей Рымин">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">К Вершине 1. Безродыш. Предземье - Андрей Рымин</div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Боевое фэнтези / Героическое фэнтези</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a><a class="popular d-flex ai-center"-->
+    <!--                           href="https://z3.fantnova.com/11329-lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.html">-->
+    <!--                        <div class="popular__img img-fit-cover">-->
+    <!--                            <img data-src="/uploads/posts/2024-05/lord-sistemy-kniga-1-sasha-toksik-jarostnyj-miki.webp"-->
+    <!--                                 src="images/no-img.png" alt="Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики">-->
+    <!--                        </div>-->
+    <!--                        <div class="popular__desc flex-grow-1">-->
+    <!--                            <div class="popular__title line-clamp">Лорд Системы. Книга 1 - Саша Токсик, Яростный Мики-->
+    <!--                            </div>-->
+    <!--                            <ul class="poster__subtitle">-->
+    <!--                                <li class="ws-nowrap">Фэнтези / Попаданцы / Юмористическое фэнтези / Боевое фэнтези</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="side-block">-->
+    <!--                    <div class="side-block__title">Комментируют</div>-->
+    <!--                    <div class="side-block__content">-->
+    <!--                        <div class="lcomm">-->
+    <!--                            <div class="lcomm__meta d-flex ai-center">-->
+    <!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость ольга</div>-->
+    <!--                                <div class="lcomm__date">01.11.25</div>-->
+    <!--                            </div>-->
+    <!--                            <div class="lcomm__text">очень понравилась история, жаль что продолжение только пишется,-->
+    <!--                                озвучка отличная-->
+    <!--                            </div>-->
+    <!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+    <!--                               href="https://z3.fantnova.com/18806-evgeniy-astahov-imperator-pogranichya-3.html"><span-->
+    <!--                                    class="fal fa-arrow-circle-right"></span>Император Пограничья. Книга 3 - Саша-->
+    <!--                                Токсик, Евгений Астахов</a>-->
+    <!--                        </div>-->
+    <!--                        <div class="lcomm">-->
+    <!--                            <div class="lcomm__meta d-flex ai-center">-->
+    <!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость Ольга</div>-->
+    <!--                                <div class="lcomm__date">01.11.25</div>-->
+    <!--                            </div>-->
+    <!--                            <div class="lcomm__text">Полнейшая чушь! Не стоит терять время на эти странные мысленные-->
+    <!--                                выверты автора-->
+    <!--                            </div>-->
+    <!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+    <!--                               href="https://z3.fantnova.com/19445-dzhuliya-princ-mladshaya-pyataya-zhena-drakona-zhelaet-razvestis.html"><span-->
+    <!--                                    class="fal fa-arrow-circle-right"></span>Младшая пятая жена дракона желает-->
+    <!--                                развестись 1 - Джулия Принц</a>-->
+    <!--                        </div>-->
+    <!--                        <div class="lcomm">-->
+    <!--                            <div class="lcomm__meta d-flex ai-center">-->
+    <!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Лучезар</div>-->
+    <!--                                <div class="lcomm__date">01.11.25</div>-->
+    <!--                            </div>-->
+    <!--                            <div class="lcomm__text">Книга хорошо зайдёт тем, кто любит и живëт слухами и сплетнями, она-->
+    <!--                                для вас.-->
+    <!--                            </div>-->
+    <!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+    <!--                               href="https://z3.fantnova.com/19404-serzh-vinterkey-revizor-vozvraschenie-v-sssr-46.html"><span-->
+    <!--                                    class="fal fa-arrow-circle-right"></span>Ревизор: Возвращение в СССР. Книга 46 - -->
+    <!--                                Серж Винтеркей</a>-->
+    <!--                        </div>-->
+    <!--                        <div class="lcomm">-->
+    <!--                            <div class="lcomm__meta d-flex ai-center">-->
+    <!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Дмидимир и Влатрий Медвепутовы</div>-->
+    <!--                                <div class="lcomm__date">01.11.25</div>-->
+    <!--                            </div>-->
+    <!--                            <div class="lcomm__text">Андрей, не смог слушать крысинные гонки к сожалению. Читает автор,-->
+    <!--                                а он-->
+    <!--                            </div>-->
+    <!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+    <!--                               href="https://z3.fantnova.com/18950-serzh-vinterkey-revizor-vozvraschenie-v-sssr-44.html"><span-->
+    <!--                                    class="fal fa-arrow-circle-right"></span>Ревизор: возвращение в СССР. Книга 44 - -->
+    <!--                                Серж Винтеркей</a>-->
+    <!--                        </div>-->
+    <!--                        <div class="lcomm">-->
+    <!--                            <div class="lcomm__meta d-flex ai-center">-->
+    <!--                                <div class="lcomm__author flex-grow-1 ws-nowrap">Гость Наталья</div>-->
+    <!--                                <div class="lcomm__date">31.10.25</div>-->
+    <!--                            </div>-->
+    <!--                            <div class="lcomm__text">Нет озвученного продолжения (((</div>-->
+    <!--                            <a class="lcomm__link ws-nowrap icon-at-left"-->
+    <!--                               href="https://z3.fantnova.com/19284-grinberga-oksana-sirotka-v-akademii-drakonov-doch-pirata.html"><span-->
+    <!--                                    class="fal fa-arrow-circle-right"></span>Сиротка в Академии Драконов 2. Дочь пирата-->
+    <!--                                - Оксана Гринберга</a>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+
+</aside>

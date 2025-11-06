@@ -10,6 +10,7 @@ class Book:
     description: str
     age: int
     time: str
+    categories: list
 
     is_published: bool = False
     author_id: Optional[int] = None
@@ -26,6 +27,13 @@ class Author:
 
 @dataclass
 class Reader:
+    title: str
+    slug: Slug
+    id: Optional[int] = None
+
+
+@dataclass
+class Category:
     title: str
     slug: Slug
     id: Optional[int] = None

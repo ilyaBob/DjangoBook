@@ -42,10 +42,17 @@ class Book(models.Model):
         related_name='books'
     )
 
-    published = PublishedManager()
+    category = models.ManyToManyField('Category', related_name='books', blank=True)
     objects = models.Manager()
+    published = PublishedManager()
 
     def get_absolute_url(self):
         return reverse('book__show', kwargs={'slug': self.slug})
 
 
+class Category(models.Model):
+    title = models.CharField(blank=False, null=False, unique=True)
+    slug = models.CharField(blank=False, null=False, unique=True)
+
+    def get_absolute_url(self):
+        return reverse('category.index', kwargs={'slug': self.slug})

@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
+from unicodedata import category
 
 from ..serializers import BookSerializer
 from ...Application.dto import CreateBookDTO
@@ -19,7 +20,7 @@ book_service = BookService(repo)
 def index(request):
     data = {
         'title': 'aaaaaaaaaaaa',
-        'books': book_service.list(),
+        'books': book_service.index(),
     }
     return render(request, 'web/book/index.html', data)
 
@@ -36,7 +37,10 @@ def show(request, slug: str):
 @csrf_exempt
 @require_POST
 def store(request):
-    serializer = BookSerializer(data=request.POST.dict())
+    data = request.POST.dict()
+    data['categories'] = request.POST.getlist('categories')
+
+    serializer = BookSerializer(data=data)
     serializer.is_valid(raise_exception=True)
 
     dto = CreateBookDTO(**serializer.validated_data)
