@@ -1,13 +1,9 @@
-import json
-
-from django.core.exceptions import ValidationError
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from unicodedata import category
 
-from ..serializers import BookSerializer
+from ..forms import BookForm
 from ...Application.dto import CreateBookDTO
 from ...Application.services import BookService
 from ...Infrastructure.models import Book
@@ -37,12 +33,14 @@ def show(request, slug: str):
 @csrf_exempt
 @require_POST
 def store(request):
-    data = request.POST.dict()
-    data['categories'] = request.POST.getlist('categories')
+    form = BookForm(request.POST)
+    try:
+        if form.is_valid():
+            dto = CreateBookDTO(**form.cleaned_data)
+            book_service.create(dto)
+            return JsonResponse({"success": True, "message": "Книга успешно создана"})
+        else:
+            return JsonResponse({"success": False, "errors": form.errors.get_json_data()}, status=400)
 
-    serializer = BookSerializer(data=data)
-    serializer.is_valid(raise_exception=True)
-
-    dto = CreateBookDTO(**serializer.validated_data)
-    book_service.create(dto)
-    return HttpResponse('aaaa')
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)

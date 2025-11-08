@@ -1,10 +1,10 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from ..serializers import ReaderSerializer
+from ..forms import ReaderForm
 from ...Application.dto import CreateReaderDTO
-from ...Application.services import AuthorService, ReaderService
+from ...Application.services import ReaderService
 from ...Infrastructure.repositories import ReaderRepository
 
 repo = ReaderRepository()
@@ -14,10 +14,14 @@ service = ReaderService(repo)
 @csrf_exempt
 @require_POST
 def store(request):
-    serializer = ReaderSerializer(data=request.POST.dict())
-    serializer.is_valid(raise_exception=True)
+    form = ReaderForm(request.POST)
+    try:
+        if form.is_valid():
+            dto = CreateReaderDTO(**form.cleaned_data)
+            service.create(dto)
+            return JsonResponse({"success": True, "message": "Чтец успешно создан"})
+        else:
+            return JsonResponse({"success": False, "errors": form.errors.get_json_data()}, status=400)
 
-    dto = CreateReaderDTO(**serializer.validated_data)
-    service.create(dto)
-
-    return HttpResponse(f'1111')
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)

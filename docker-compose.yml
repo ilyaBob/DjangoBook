@@ -4,7 +4,7 @@ services:
   web:
     build: .
     volumes:
-      - ./:/home/project
+      - ./:/home
     ports:
       - "8000:8000"
     env_file:

@@ -8,7 +8,7 @@ class CreateBookDTO:
     description: str
     age: int
     time: str
-    categories: list[int]
+    category: list[int]
     is_published: bool = False
     author_id: Optional[int] = None
     reader_id: Optional[int] = None

@@ -15,5 +15,5 @@ RUN python -m pip install Django psycopg2-binary python-slugify djangorestframew
 
 #EXPOSE 8000
 
-CMD cd project && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+CMD python manage.py migrate && python manage.py runserver 0.0.0.0:8000
 

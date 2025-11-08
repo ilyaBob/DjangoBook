@@ -56,7 +56,7 @@
             <!--                        </li>-->
 
             {% for cat in categories %}
-            <li><a href="/uzhasy-mistika">{{cat.title}}</a></li>
+            <li><a href="{{cat.get_absolute_url}}">{{cat.title}}</a></li>
             {% endfor %}
 
         </ul>

@@ -1,8 +1,8 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from ..serializers import AuthorSerializer
+from ..forms import AuthorForm
 from ...Application.dto import CreateAuthorDTO
 from ...Application.services import AuthorService
 from ...Infrastructure.repositories import AuthorRepository
@@ -14,10 +14,14 @@ service = AuthorService(repo)
 @csrf_exempt
 @require_POST
 def store(request):
-    serializer = AuthorSerializer(data=request.POST.dict())
-    serializer.is_valid(raise_exception=True)
+    form = AuthorForm(request.POST)
+    try:
+        if form.is_valid():
+            dto = CreateAuthorDTO(**form.cleaned_data)
+            service.create(dto)
+            return JsonResponse({"success": True, "message": "Автор успешно создан"})
+        else:
+            return JsonResponse({"success": False, "errors": form.errors.get_json_data()}, status=400)
 
-    dto = CreateAuthorDTO(**serializer.validated_data)
-    service.create(dto)
-
-    return HttpResponse(f'1111')
+    except Exception as e:
+        return JsonResponse({"success": False, 'message': str(e)}, status=500)

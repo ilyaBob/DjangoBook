@@ -1,15 +1,30 @@
 from django.db import models
 from django.urls import reverse
+from ..Domain.value_objects import Slug
 
 
 class Author(models.Model):
     title = models.CharField(blank=False, null=False, unique=True)
     slug = models.CharField(blank=False, null=False, unique=True)
 
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = Slug.format_str(self.title)
+        super().save(*args, **kwargs)
+
 
 class Reader(models.Model):
     title = models.CharField(blank=False, null=False, unique=True)
     slug = models.CharField(blank=False, null=False, unique=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = Slug.format_str(self.title)
+        super().save(*args, **kwargs)
 
 
 class PublishedManager(models.Manager):
@@ -46,13 +61,31 @@ class Book(models.Model):
     objects = models.Manager()
     published = PublishedManager()
 
+    class Meta:
+        verbose_name = "Книга"
+        verbose_name_plural = "Книги"
+
+    def __str__(self):
+        return self.title
+
     def get_absolute_url(self):
         return reverse('book__show', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = Slug.format_str(self.title)
+        super().save(*args, **kwargs)
 
 
 class Category(models.Model):
     title = models.CharField(blank=False, null=False, unique=True)
     slug = models.CharField(blank=False, null=False, unique=True)
 
+    def __str__(self):
+        return self.title
+
     def get_absolute_url(self):
         return reverse('category.index', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = Slug.format_str(self.title)
+        super().save(*args, **kwargs)

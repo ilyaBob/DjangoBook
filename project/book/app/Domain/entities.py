@@ -6,12 +6,12 @@ from ..Domain.value_objects import Slug
 @dataclass
 class Book:
     title: str
-    slug: Slug
     description: str
     age: int
     time: str
-    categories: list
+    category: list
 
+    slug: Optional[str] = None
     is_published: bool = False
     author_id: Optional[int] = None
     reader_id: Optional[int] = None
@@ -21,19 +21,19 @@ class Book:
 @dataclass
 class Author:
     title: str
-    slug: Slug
     id: Optional[int] = None
+    slug: Optional[str] = None
 
 
 @dataclass
 class Reader:
     title: str
-    slug: Slug
     id: Optional[int] = None
+    slug: Optional[str] = None
 
 
 @dataclass
 class Category:
     title: str
-    slug: Slug
     id: Optional[int] = None
+    slug: Optional[str] = None

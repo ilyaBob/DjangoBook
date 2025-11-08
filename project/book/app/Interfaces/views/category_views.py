@@ -1,14 +1,13 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from ..serializers import CategorySerializer
+from ..forms import CategoryForm
 from ...Application.dto import CreateCategoryDTO
 from ...Application.services import CategoryService, BookService
+from ...Infrastructure.models import Category
 from ...Infrastructure.repositories import CategoryRepository, BookRepository
-
-from ...Infrastructure.models import Book, Category
 
 repo = CategoryRepository()
 service = CategoryService(repo)
@@ -30,9 +29,14 @@ def index(request, slug: str):
 @csrf_exempt
 @require_POST
 def store(request):
-    serializer = CategorySerializer(data=request.POST.dict())
-    serializer.is_valid(raise_exception=True)
+    form = CategoryForm(request.POST)
+    try:
+        if form.is_valid():
+            dto = CreateCategoryDTO(**form.cleaned_data)
+            service.create(dto)
+            return JsonResponse({"success": True, "message": "Категория успешно создана"})
+        else:
+            return JsonResponse({"success": False, "errors": form.errors.get_json_data()}, status=400)
 
-    dto = CreateCategoryDTO(**serializer.validated_data)
-    service.create(dto)
-    return HttpResponse('aaaa')
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
