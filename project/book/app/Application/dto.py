@@ -10,8 +10,10 @@ class CreateBookDTO:
     time: str
     category: list[int]
     is_published: bool = False
-    author_id: Optional[int] = None
-    reader_id: Optional[int] = None
+    author: Optional[int] = None
+    reader: Optional[int] = None
+    cycle: Optional[int] = None
+    cycle_number: Optional[str] = None
 
 
 @dataclass
@@ -26,4 +28,8 @@ class CreateReaderDTO:
 
 @dataclass
 class CreateCategoryDTO:
+    title: str
+
+@dataclass
+class CreateCycleDTO:
     title: str

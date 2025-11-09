@@ -59,8 +59,8 @@
     <link href="{% static 'book/css/fontawesome.css' %}" type="text/css" rel="stylesheet">
     <!-- Caramel -->
     <script>window.yaContextCb = window.yaContextCb || [] </script>
-    <script async="" src="js/context.js"></script>
-    <script async="" src="js/caramel.js"></script>
+    <script async="" src="{% static 'book/js/context.js' %}"></script>
+    <script async="" src="{% static 'book/js/caramel.js' %}"></script>
     <script>window.CaramelDomain = "a-fantastic.com"</script>
     <!-- /Caramel -->
     <script>
@@ -399,10 +399,7 @@
     </form>
 </div>
 
-
-<script src="index.php"></script>
-<script src="index_1.php" defer=""></script>
-<script src="js/libs.js"></script>
+<script src="{% static 'book/js/libs.js' %}"></script>
 <script>
     <!--
     var dle_root = '/';
@@ -487,9 +484,8 @@
     });
 </script>
 
-<link href="css/dle_filter.css" type="text/css" rel="stylesheet">
-<script src="dle_filter.js.php"></script>
-<script src="js/dle_filter.js"></script>
+<link href="{% static 'book/css/dle_filter.css' %}" type="text/css" rel="stylesheet">
+<script src="{% static 'book/js/dle_filter.js' %}"></script>
 
 
 <!-- Yandex.Metrika counter -->
@@ -509,21 +505,10 @@
 
     ym(104304356, 'init', {ssr: true, clickmap: true, accurateTrackBounce: true, trackLinks: true});
 </script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/104304356" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
+
 <!-- /Yandex.Metrika counter -->
 
-<script src="dle_search.js.php"></script>
-
-<!-- caramel-Catfish-Mobile -->
-<div caramel-id="01j78m1n3geh817t7rw0ayghtr"></div>
-<!-- /caramel-Catfish-Mobile -->
-<!-- caramel-Catfish-Desktop -->
-<div caramel-id="01j78m1sche8dfntcfb9zj1x06"></div>
-<!-- /caramel-Catfish-Desktop -->
-
-<script type="text/javascript" src="js/jquery.ttabs.js"></script>
+<script type="text/javascript" src="{% static 'book/js/jquery.ttabs.js' %}"></script>
 <script>$('.tt-tabs').ttabs();</script>
 
 <style>

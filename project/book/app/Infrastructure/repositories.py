@@ -1,6 +1,6 @@
 from dataclasses import asdict
 
-from .models import Book, Author, Reader, Category
+from .models import Book, Author, Reader, Category, Cycle
 from ..Domain import entities
 
 
@@ -19,8 +19,10 @@ class BookRepository():
             age=data.age,
             time=data.time,
             is_published=data.is_published,
-            author_id=data.author_id,
-            reader_id=data.reader_id,
+            author=data.author,
+            reader=data.reader,
+            cycle=data.cycle,
+            cycle_number=data.cycle_number,
         )
 
         book.save()
@@ -40,6 +42,12 @@ class ReaderRepository():
         data = asdict(data)
         reader = Reader(**data)
         reader.save()
+
+class CycleRepository():
+    def create(self, data: entities.Cycle) -> None:
+        data = asdict(data)
+        cycle = Cycle(**data)
+        cycle.save()
 
 
 class CategoryRepository():

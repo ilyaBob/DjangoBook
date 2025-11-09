@@ -1,6 +1,7 @@
-from .dto import CreateAuthorDTO, CreateBookDTO, CreateReaderDTO, CreateCategoryDTO
+from .dto import CreateAuthorDTO, CreateBookDTO, CreateReaderDTO, CreateCategoryDTO, CreateCycleDTO
 from ..Domain import entities
-from ..Infrastructure.repositories import BookRepository, AuthorRepository, ReaderRepository, CategoryRepository
+from ..Infrastructure.repositories import BookRepository, AuthorRepository, ReaderRepository, CategoryRepository, \
+    CycleRepository
 from dataclasses import asdict
 
 
@@ -22,8 +23,10 @@ class BookService:
             time=dto.time,
             category=dto.category,
             is_published=dto.is_published,
-            author_id=dto.author_id,
-            reader_id=dto.reader_id,
+            author=dto.author,
+            reader=dto.reader,
+            cycle=dto.cycle,
+            cycle_number=dto.cycle_number,
         )
 
         book = self.book_repo.create(data)
@@ -38,6 +41,15 @@ class AuthorService:
     def create(self, dto: CreateAuthorDTO):
         data = entities.Author(**asdict(dto))
         self.author_repo.create(data)
+
+
+class CycleService:
+    def __init__(self, repo: CycleRepository):
+        self.repo = repo
+
+    def create(self, dto: CreateCycleDTO):
+        data = entities.Cycle(**asdict(dto))
+        self.repo.create(data)
 
 
 class ReaderService:

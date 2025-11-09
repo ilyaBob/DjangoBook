@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from typing import Optional
-from ..Domain.value_objects import Slug
 
 
 @dataclass
@@ -13,13 +12,22 @@ class Book:
 
     slug: Optional[str] = None
     is_published: bool = False
-    author_id: Optional[int] = None
-    reader_id: Optional[int] = None
+    author: Optional[int] = None
+    reader: Optional[int] = None
+    cycle: Optional[int] = None
     id: Optional[int] = None
+    cycle_number: Optional[str] = None
 
 
 @dataclass
 class Author:
+    title: str
+    id: Optional[int] = None
+    slug: Optional[str] = None
+
+
+@dataclass
+class Cycle:
     title: str
     id: Optional[int] = None
     slug: Optional[str] = None

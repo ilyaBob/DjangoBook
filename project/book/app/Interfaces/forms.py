@@ -1,6 +1,6 @@
 from django import forms
 
-from ..Infrastructure.models import Book, Category, Author, Reader
+from ..Infrastructure.models import Book, Category, Author, Reader, Cycle
 
 
 class BookForm(forms.ModelForm):
@@ -13,8 +13,13 @@ class BookForm(forms.ModelForm):
         fields = (
             'title',
             'description',
+            'is_published',
             'age',
             'time',
+            'author',
+            'reader',
+            'cycle',
+            'cycle_number',
             'category',
         )
 
@@ -34,4 +39,9 @@ class CategoryForm(forms.ModelForm):
 class ReaderForm(forms.ModelForm):
     class Meta:
         model = Reader
+        fields = ('title',)
+
+class CycleForm(forms.ModelForm):
+    class Meta:
+        model = Cycle
         fields = ('title',)

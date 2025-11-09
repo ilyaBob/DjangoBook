@@ -42,9 +42,17 @@ class Book(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     age = models.IntegerField(blank=False, null=False)
     time = models.CharField(blank=False, null=False)
+    cycle_number = models.IntegerField(blank=True, null=True)
 
     author = models.ForeignKey(
         'Author',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='books'
+    )
+
+    cycle = models.ForeignKey(
+        'Cycle',
         on_delete=models.SET_NULL,
         null=True,
         related_name='books'
@@ -85,6 +93,18 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category.index', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        self.slug = Slug.format_str(self.title)
+        super().save(*args, **kwargs)
+
+
+class Cycle(models.Model):
+    title = models.CharField(blank=False, null=False, unique=True)
+    slug = models.CharField(blank=False, null=False, unique=True)
+
+    def __str__(self):
+        return self.title
 
     def save(self, *args, **kwargs):
         self.slug = Slug.format_str(self.title)
