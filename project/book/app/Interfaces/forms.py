@@ -12,6 +12,7 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = (
             'title',
+            'image_url',
             'description',
             'is_published',
             'age',

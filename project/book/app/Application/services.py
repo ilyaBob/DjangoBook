@@ -27,6 +27,7 @@ class BookService:
             reader=dto.reader,
             cycle=dto.cycle,
             cycle_number=dto.cycle_number,
+            image_url=dto.image_url,
         )
 
         book = self.book_repo.create(data)

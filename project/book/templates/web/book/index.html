@@ -22,10 +22,9 @@
         <a class="poster grid-item d-flex fd-column has-overlay"
            href="{{ book.get_absolute_url }}">
             <div class="poster__img img-responsive img-responsive--portrait img-fit-cover">
-                <link rel="preload" as="image"
-                      href="https://z3.fantnova.com/uploads/posts/2025-10/andrey-pervuhin-tovarisch-mag.webp">
+                <link rel="preload" as="image" href="{{book.image_url}}">
                 <img
-                     src="	https://z4.fantnova.com/uploads/posts/2025-10/mihail-lancov-hozyain-dubravy-tom-1-zhelud.webp" alt="{{ book.title }} - Андрей Первухин">
+                     src="	{{book.image_url}}" alt="{{ book.title }} - Андрей Первухин">
                 <div class="poster__label">{{ book.time }}</div>
                 <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span>
                 </div>

@@ -5,6 +5,7 @@ from typing import Optional
 @dataclass
 class Book:
     title: str
+    image_url: str
     description: str
     age: int
     time: str

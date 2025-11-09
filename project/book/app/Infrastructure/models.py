@@ -35,6 +35,7 @@ class PublishedManager(models.Manager):
 class Book(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(blank=False, null=False, unique=True)
+    image_url = models.CharField(blank=False, null=False, unique=True)
     slug = models.CharField(blank=False, null=False, unique=True)
     description = models.TextField(max_length=4000, blank=False, null=False)
     is_published = models.BooleanField(default=False)

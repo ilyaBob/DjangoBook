@@ -5,6 +5,9 @@ from ...Application.dto import ParsedBookDTO
 
 
 class FantNovaParser:
+
+    domain = 'https://z4.fantnova.com'
+
     def parse(self, url: str) -> ParsedBookDTO:
         html = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}).text
 
@@ -60,6 +63,6 @@ class FantNovaParser:
             cycle_name=cycle,
             cycle_number=cycle_number,
             category=genres,
-            # image_url=image_url,
+            image_url= f"{self.domain}/{image_url}",
             description=description,
         )

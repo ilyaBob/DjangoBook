@@ -50,6 +50,7 @@ class Command(BaseCommand):
                 "is_published": 1,
                 "category": category_ids,
                 "cycle_number": book_data.cycle_number,
+                "image_url": book_data.image_url,
                 "cycle": cycle.pk
             }
 

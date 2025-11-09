@@ -35,6 +35,7 @@ class BookRepository():
     def create(self, data: entities.Book):
         book = Book(
             title=data.title,
+            image_url=data.image_url,
             slug=data.slug,
             description=data.description,
             age=data.age,
