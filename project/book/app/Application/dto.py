@@ -33,3 +33,18 @@ class CreateCategoryDTO:
 @dataclass
 class CreateCycleDTO:
     title: str
+
+
+@dataclass
+class ParsedBookDTO:
+    title: str
+    description: Optional[str]
+    age: Optional[int]
+    time: Optional[str]
+    is_published: bool = False
+    author_name: Optional[str] = None
+    reader_name: Optional[str] = None
+    cycle_name: Optional[str] = None
+    cycle_number: Optional[int] = None
+    category: list[str] = None
+    image_url: Optional[str] = None

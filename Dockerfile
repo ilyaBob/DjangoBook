@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /home/project
 
-RUN python -m pip install Django psycopg2-binary python-slugify djangorestframework
+RUN python -m pip install Django psycopg2-binary python-slugify djangorestframework beautifulsoup4 requests
 # Копируем зависимости
 #COPY requirements.txt .
 #RUN pip install --no-cache-dir -r requirements.txt

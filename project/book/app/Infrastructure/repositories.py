@@ -4,6 +4,27 @@ from .models import Book, Author, Reader, Category, Cycle
 from ..Domain import entities
 
 
+class BaseRepository():
+    model = None
+
+    def __init__(self):
+        if not self.model:
+            raise NotImplementedError("Укажите self.model в наследнике")
+
+    def create(self, data) -> None:
+        data = asdict(data)
+        model = self.model(**data)
+        model.save()
+
+    def get_or_create_by_name(self, value) -> model:
+        model = self.model.objects.filter(title=value).first()
+        if not model:
+            model = self.model(title=value)
+            model.save()
+
+        return model
+
+
 class BookRepository():
     def index(self) -> list[entities.Book]:
         return list(Book.published.all())
@@ -30,28 +51,17 @@ class BookRepository():
         return book
 
 
-class AuthorRepository():
-    def create(self, data: entities.Author) -> None:
-        data = asdict(data)
-        author = Author(**data)
-        author.save()
+class AuthorRepository(BaseRepository):
+    model = Author
 
 
-class ReaderRepository():
-    def create(self, data: entities.Reader) -> None:
-        data = asdict(data)
-        reader = Reader(**data)
-        reader.save()
-
-class CycleRepository():
-    def create(self, data: entities.Cycle) -> None:
-        data = asdict(data)
-        cycle = Cycle(**data)
-        cycle.save()
+class ReaderRepository(BaseRepository):
+    model = Reader
 
 
-class CategoryRepository():
-    def create(self, data: entities.Category) -> None:
-        data = asdict(data)
-        category = Category(**data)
-        category.save()
+class CycleRepository(BaseRepository):
+    model = Cycle
+
+
+class CategoryRepository(BaseRepository):
+    model = Category
