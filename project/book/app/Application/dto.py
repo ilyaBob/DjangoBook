@@ -14,7 +14,7 @@ class CreateBookDTO:
     author: Optional[int] = None
     reader: Optional[int] = None
     cycle: Optional[int] = None
-    cycle_number: Optional[str] = None
+    cycle_number: Optional[int] = None
 
 
 @dataclass

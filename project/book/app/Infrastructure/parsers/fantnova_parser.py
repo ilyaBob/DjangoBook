@@ -21,7 +21,7 @@ class FantNovaParser:
         image_url = img_tag.get("data-src") if img_tag else None
 
         # Основные параметры
-        year = author = reader = time = cycle = None
+        year = author = reader = time = cycle = cycle_number = None
         genres = []
 
         for li in soup.select(".pmovie__header-list li"):
@@ -66,3 +66,18 @@ class FantNovaParser:
             image_url= f"{self.domain}/{image_url}",
             description=description,
         )
+
+    @staticmethod
+    def get_urls_with_page(url: str) -> list[str]:
+        response = requests.get(url)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        book_links = []
+        for a_tag in soup.select("a.poster.grid-item"):
+            href = a_tag.get("href")
+            if href:
+                book_links.append(href)
+
+        return book_links

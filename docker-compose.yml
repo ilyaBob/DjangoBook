@@ -3,6 +3,7 @@ version: "3.9"
 services:
   web:
     build: .
+    container_name: django_proj_web
     volumes:
       - ./:/home
     ports:
@@ -16,6 +17,7 @@ services:
 
   db:
     image: postgres:17
+    container_name: django_proj_db
     restart: always
     environment:
       POSTGRES_DB: database

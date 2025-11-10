@@ -1,3 +1,5 @@
+from django.db import transaction
+
 from .dto import CreateAuthorDTO, CreateBookDTO, CreateReaderDTO, CreateCategoryDTO, CreateCycleDTO
 from ..Domain import entities
 from ..Infrastructure.repositories import BookRepository, AuthorRepository, ReaderRepository, CategoryRepository, \
@@ -16,23 +18,27 @@ class BookService:
         return self.book_repo.index_with_filters(**filter)
 
     def create(self, dto: CreateBookDTO):
-        data = entities.Book(
-            title=dto.title,
-            description=dto.description,
-            age=dto.age,
-            time=dto.time,
-            category=dto.category,
-            is_published=dto.is_published,
-            author=dto.author,
-            reader=dto.reader,
-            cycle=dto.cycle,
-            cycle_number=dto.cycle_number,
-            image_url=dto.image_url,
-        )
+        try:
+            with transaction.atomic():
+                data = entities.Book(
+                    title=dto.title,
+                    description=dto.description,
+                    age=dto.age,
+                    time=dto.time,
+                    category=dto.category,
+                    is_published=dto.is_published,
+                    author=dto.author,
+                    reader=dto.reader,
+                    cycle=dto.cycle,
+                    cycle_number=dto.cycle_number,
+                    image_url=dto.image_url,
+                )
 
-        book = self.book_repo.create(data)
+                book = self.book_repo.create(data)
+                book.category.set(dto.category)
 
-        book.category.set(dto.category)
+        except Exception as e:
+            pass
 
 
 class AuthorService:

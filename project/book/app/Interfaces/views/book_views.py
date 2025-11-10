@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.csrf import csrf_exempt
@@ -14,9 +15,14 @@ book_service = BookService(repo)
 
 
 def index(request):
+    books = book_service.index()
+    paginator = Paginator(books, 20)
+    page = request.GET.get('page')
+    page_data = paginator.get_page(page)
+
     data = {
         'title': 'aaaaaaaaaaaa',
-        'books': book_service.index(),
+        'books': page_data,
     }
     return render(request, 'web/book/index.html', data)
 

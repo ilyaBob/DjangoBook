@@ -23,8 +23,7 @@
            href="{{ book.get_absolute_url }}">
             <div class="poster__img img-responsive img-responsive--portrait img-fit-cover">
                 <link rel="preload" as="image" href="{{book.image_url}}">
-                <img
-                     src="	{{book.image_url}}" alt="{{ book.title }} - Андрей Первухин">
+                <img src="{{book.image_url}}" alt="{{ book.title }} - Андрей Первухин">
                 <div class="poster__label">{{ book.time }}</div>
                 <div class="has-overlay__mask btn-icon anim"><span class="fal fa-headphones"></span>
                 </div>
@@ -45,17 +44,41 @@
                     class="fal fa-ellipsis-h"></span></a></div>
 
 
-            <div class="pagination__pages d-flex jc-center"><span>1</span> <a
-                    href="https://z3.fantnova.com/page/2/">2</a> <a
-                    href="https://z3.fantnova.com/page/3/">3</a> <a
-                    href="https://z3.fantnova.com/page/4/">4</a> <a
-                    href="https://z3.fantnova.com/page/5/">5</a> <a
-                    href="https://z3.fantnova.com/page/6/">6</a> <a
-                    href="https://z3.fantnova.com/page/7/">7</a> <a
-                    href="https://z3.fantnova.com/page/8/">8</a> <a
-                    href="https://z3.fantnova.com/page/9/">9</a> <a
-                    href="https://z3.fantnova.com/page/10/">10</a> <span class="nav_ext">...</span> <a
-                    href="https://z3.fantnova.com/page/865/">865</a></div>
+            <div class="pagination__pages d-flex jc-center">
+    {% with total=books.paginator.num_pages %}
+    {% with current=books.number %}
+
+    {# Показываем первую страницу #}
+    {% if current > 3 %}
+        <a href="?page=1">1</a>
+        {% if current > 4 %}
+            <span>…</span>
+        {% endif %}
+    {% endif %}
+
+    {# Показываем страницы вокруг текущей (например, ±2) #}
+    {% for p in books.paginator.page_range %}
+        {% if p >= current|add:-2 and p <= current|add:2 %}
+            {% if p == current %}
+                <span class="active">{{ p }}</span>
+            {% else %}
+                <a href="?page={{ p }}">{{ p }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {# Показываем последнюю страницу #}
+    {% if current < total|add:-2 %}
+        {% if current < total|add:-3 %}
+            <span>…</span>
+        {% endif %}
+        <a href="?page={{ total }}">{{ total }}</a>
+    {% endif %}
+
+    {% endwith %}
+    {% endwith %}
+</div>
+
 
 
         </div>

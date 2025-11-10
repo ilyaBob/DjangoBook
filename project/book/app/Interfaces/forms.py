@@ -7,6 +7,8 @@ class BookForm(forms.ModelForm):
     category = forms.ModelMultipleChoiceField(
         queryset=Category.objects.all(),
     )
+    cycle = forms.ModelChoiceField(queryset=Cycle.objects.all(), required=False)
+    cycle_number = forms.IntegerField(required=False)
 
     class Meta:
         model = Book

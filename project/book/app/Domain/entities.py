@@ -17,7 +17,7 @@ class Book:
     reader: Optional[int] = None
     cycle: Optional[int] = None
     id: Optional[int] = None
-    cycle_number: Optional[str] = None
+    cycle_number: Optional[int] = None
 
 
 @dataclass

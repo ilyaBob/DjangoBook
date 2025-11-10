@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -18,9 +19,14 @@ book_service = BookService(book_repo)
 def index(request, slug: str):
     category = get_object_or_404(Category, slug=slug)
 
+    books = book_service.index_with_filters(category=category)
+    paginator = Paginator(books, 20)
+    page = request.GET.get('page')
+    page_data = paginator.get_page(page)
+
     data = {
-        'title': f"Новые аудиокниги в жанре {category.title}",
-        'books': book_service.index_with_filters(category=category),
+        'title':  f"Новые аудиокниги в жанре {category.title}",
+        'books': page_data,
     }
 
     return render(request, 'web/book/index.html', data)

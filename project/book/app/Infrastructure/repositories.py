@@ -1,11 +1,14 @@
 from dataclasses import asdict
+from typing import TypeVar, Type, Generic
 
 from .models import Book, Author, Reader, Category, Cycle
 from ..Domain import entities
 
+T = TypeVar("T")
 
-class BaseRepository():
-    model = None
+
+class BaseRepository(Generic[T]):
+    model: Type[T] = None
 
     def __init__(self):
         if not self.model:
@@ -16,7 +19,7 @@ class BaseRepository():
         model = self.model(**data)
         model.save()
 
-    def get_or_create_by_name(self, value) -> model:
+    def get_or_create_by_name(self, value) -> T:
         model = self.model.objects.filter(title=value).first()
         if not model:
             model = self.model(title=value)
@@ -25,7 +28,7 @@ class BaseRepository():
         return model
 
 
-class BookRepository():
+class BookRepository:
     def index(self) -> list[entities.Book]:
         return list(Book.published.all())
 
