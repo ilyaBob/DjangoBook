@@ -47,7 +47,7 @@ Thumbs.db
 *.ini
 *.cfg
 *.yaml
-*.yml
+#*.yml
 *.json
 secrets.json
 
@@ -55,7 +55,7 @@ secrets.json
 *.pid
 *.seed
 *.pid.lock
-docker-compose.override.yml
+#docker-compose.override.yml
 /tmp/
 logs/
 
