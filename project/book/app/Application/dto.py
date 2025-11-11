@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 from typing import Optional
 
+from book.app.Domain.entities import Cycle
+from book.app.Infrastructure.models import Author, Reader
+
 
 @dataclass
 class CreateBookDTO:
@@ -11,9 +14,9 @@ class CreateBookDTO:
     time: str
     category: list[int]
     is_published: bool = False
-    author: Optional[int] = None
-    reader: Optional[int] = None
-    cycle: Optional[int] = None
+    author: Optional[Author] = None
+    reader: Optional[Reader] = None
+    cycle: Optional[Cycle] = None
     cycle_number: Optional[int] = None
 
 
