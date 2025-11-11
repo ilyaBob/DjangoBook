@@ -1,10 +1,16 @@
 from django.db import transaction
 
-from .dto import CreateAuthorDTO, CreateBookDTO, CreateReaderDTO, CreateCategoryDTO, CreateCycleDTO
+from .dto import CreateBookDTO
 from ..Domain import entities
-from ..Infrastructure.repositories import BookRepository, AuthorRepository, ReaderRepository, CategoryRepository, \
-    CycleRepository
-from dataclasses import asdict
+from ..Infrastructure.repositories import BookRepository, BaseRepository
+
+
+class BaseService:
+    def __init__(self, repo: BaseRepository):
+        self.repo = repo
+
+    def create(self, dto):
+        self.repo.create(dto)
 
 
 class BookService:
@@ -20,58 +26,23 @@ class BookService:
     def create(self, dto: CreateBookDTO):
         try:
             with transaction.atomic():
-                data = entities.Book(
-                    title=dto.title,
-                    description=dto.description,
-                    age=dto.age,
-                    time=dto.time,
-                    category=dto.category,
-                    is_published=dto.is_published,
-                    author=dto.author,
-                    reader=dto.reader,
-                    cycle=dto.cycle,
-                    cycle_number=dto.cycle_number,
-                    image_url=dto.image_url,
-                )
-
-                book = self.book_repo.create(data)
+                book = self.book_repo.create(dto)
                 book.category.set(dto.category)
-
         except Exception as e:
-            pass
+            raise ValueError(f"Не удалось создать книгу: {e}")
 
 
-class AuthorService:
-    def __init__(self, author_repo: AuthorRepository):
-        self.author_repo = author_repo
-
-    def create(self, dto: CreateAuthorDTO):
-        data = entities.Author(**asdict(dto))
-        self.author_repo.create(data)
+class AuthorService(BaseService):
+    pass
 
 
-class CycleService:
-    def __init__(self, repo: CycleRepository):
-        self.repo = repo
-
-    def create(self, dto: CreateCycleDTO):
-        data = entities.Cycle(**asdict(dto))
-        self.repo.create(data)
+class CycleService(BaseService):
+    pass
 
 
-class ReaderService:
-    def __init__(self, repo: ReaderRepository):
-        self.repo = repo
-
-    def create(self, dto: CreateReaderDTO):
-        data = entities.Reader(**asdict(dto))
-        self.repo.create(data)
+class ReaderService(BaseService):
+    pass
 
 
-class CategoryService:
-    def __init__(self, repo: CategoryRepository):
-        self.repo = repo
-
-    def create(self, dto: CreateCategoryDTO):
-        data = entities.Category(**asdict(dto))
-        self.repo.create(data)
+class CategoryService(BaseService):
+    pass

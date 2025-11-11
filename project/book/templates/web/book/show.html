@@ -4,7 +4,7 @@
 
 <div class="speedbar ws-nowrap">
     <a href="/">fantnova</a>
-    <a href="{{book.category.first.get_absolute_url}}">{{book.category.first.title}}</a>
+    <a href="{{first_category.get_absolute_url}}">{{first_category.title}}</a>
     {{book.title}}
 </div>
 
@@ -51,7 +51,7 @@
                 {% endif %}
                 <li>
                     <div>Жанр:</div>
-                    {% for cat in book.category.all %}
+                    {% for cat in categories %}
                     <a href="{{ cat.get_absolute_url }}"> {{ cat.title }}</a>
                     {% if not forloop.last %} / {% endif %}
                     {% endfor %}
@@ -76,7 +76,7 @@
     <div class="pmovie__caption">
         Прослушать аудиокнигу <b>бесплатно "{{book.title}}"</b>.
         Эта аудиокнига относится к трендовому жанру
-        {% for cat in book.category.all %}
+        {% for cat in categories %}
         {{ cat.title }}
         {% if not forloop.last %} / {% endif %}
         {% endfor %}
@@ -415,23 +415,6 @@
                         <div class="bb-editor">
                             <textarea name="comments" id="comments" cols="70" rows="10"></textarea>
                         </div>
-                    </div>
-                </div>
-
-
-                <div class="form__row form__row--protect message-info d-none">
-                    <div class="form__caption">
-                        <label class="form__label form__label--important" for="sec_code">Введите код с
-                            картинки:</label>
-                    </div>
-                    <div class="form__content form__content--sec-code">
-                        <input class="form__input" type="text" name="sec_code" id="sec_code"
-                               placeholder="Впишите код с картинки" maxlength="45" required="">
-                        <a onclick="reload(); return false;"
-                           title="Кликните на изображение чтобы обновить код, если он неразборчив"
-                           href="#"><span id="dle-captcha"><img src="antibot.php"
-                                                                alt="Кликните на изображение чтобы обновить код, если он неразборчив"
-                                                                width="160" height="80"></span></a>
                     </div>
                 </div>
 

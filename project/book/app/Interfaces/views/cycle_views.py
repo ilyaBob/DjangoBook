@@ -2,10 +2,10 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from ..forms import AuthorForm, CycleForm
-from ...Application.dto import CreateAuthorDTO, CreateCycleDTO
-from ...Application.services import AuthorService, CycleService
-from ...Infrastructure.repositories import AuthorRepository, CycleRepository
+from ..forms import CycleForm
+from ...Application.dto import CreateCycleDTO
+from ...Application.services import CycleService
+from ...Infrastructure.repositories import CycleRepository
 
 repo = CycleRepository()
 service = CycleService(repo)

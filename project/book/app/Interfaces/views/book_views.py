@@ -28,10 +28,18 @@ def index(request):
 
 
 def show(request, slug: str):
-    book = get_object_or_404(Book, slug=slug)
+    book = get_object_or_404(
+        Book.objects.select_related('author', 'cycle', 'reader'),
+        slug=slug
+    )
+
+    categories = list(book.category.all())
+
     data = {
         'title': book.title,
-        'book': book
+        'book': book,
+        'first_category': categories[0],
+        'categories': categories,
     }
     return render(request, 'web/book/show.html', data)
 

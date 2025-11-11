@@ -2,10 +2,10 @@ from dataclasses import asdict
 from typing import TypeVar, Type, Generic
 
 from .models import Book, Author, Reader, Category, Cycle
+from ..Application import dto
 from ..Domain import entities
 
 T = TypeVar("T")
-
 
 class BaseRepository(Generic[T]):
     model: Type[T] = None
@@ -35,11 +35,10 @@ class BookRepository:
     def index_with_filters(self, **filters) -> list[entities.Book]:
         return list(Book.published.filter(**filters))
 
-    def create(self, data: entities.Book):
+    def create(self, data: dto.CreateBookDTO) -> Book:
         book = Book(
             title=data.title,
             image_url=data.image_url,
-            slug=data.slug,
             description=data.description,
             age=data.age,
             time=data.time,
@@ -49,7 +48,6 @@ class BookRepository:
             cycle=data.cycle,
             cycle_number=data.cycle_number,
         )
-
         book.save()
 
         return book
