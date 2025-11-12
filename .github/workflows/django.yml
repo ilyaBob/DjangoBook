@@ -24,8 +24,14 @@ jobs:
     needs: build
 
     steps:
+      - name: Bring up containers
+        run: docker compose -f docker-compose.yml up -d
+
       - name: Start lint
-        run: flake8 project/
+        run: docker compose run --rm web flake8 project/
+
+      - name: Tear down
+        run: docker compose down
 
   tests:
     runs-on: ubuntu-latest
