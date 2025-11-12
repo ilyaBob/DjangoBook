@@ -2,6 +2,7 @@ from django.db import transaction
 
 from .dto import CreateBookDTO
 from ..Domain import entities
+from ..Domain.exceptions import CreateBookException
 from ..Infrastructure.repositories import BookRepository, BaseRepository
 
 
@@ -29,7 +30,7 @@ class BookService:
                 book = self.book_repo.create(dto)
                 book.category.set(dto.category)
         except Exception as e:
-            raise ValueError(f"Не удалось создать книгу: {e}")
+            raise CreateBookException()
 
 
 class AuthorService(BaseService):

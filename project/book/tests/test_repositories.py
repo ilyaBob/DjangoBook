@@ -1,8 +1,8 @@
 from django.test import TestCase
 
-from book.app.Application.dto import CreateBookDTO
-from book.app.Infrastructure.models import Book, Author, Reader, Category, Cycle
-from book.app.Infrastructure.repositories import (
+from ..app.Application.dto import CreateBookDTO
+from ..app.Infrastructure.models import Book, Author, Reader, Category, Cycle
+from ..app.Infrastructure.repositories import (
     BookRepository, AuthorRepository, CategoryRepository
 )
 
@@ -11,7 +11,6 @@ class BaseRepositoryTestCase(TestCase):
 
     def test_author_create_and_get_or_create(self):
         repo = AuthorRepository()
-        # Создание через create
         from dataclasses import dataclass
         @dataclass
         class DummyAuthor:
