@@ -1,30 +1,43 @@
-name: Django CI
+name: Django CI via Docker
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.7, 3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run Tests
-      run: |
-        python manage.py test
+      # 1. Клонируем репозиторий
+      - uses: actions/checkout@v4
+
+      # 2. Устанавливаем Docker (Ubuntu обычно уже имеет docker)
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      # 3. Копируем .env.example или создаем временный .env для CI
+      - name: Set up .env
+        run: |
+          echo "POSTGRES_DB=testdb" >> .env
+          echo "POSTGRES_USER=testuser" >> .env
+          echo "POSTGRES_PASSWORD=testpass" >> .env
+
+      # 4. Собираем и поднимаем контейнеры
+      - name: Build and run Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml up -d --build
+          # Ждем, пока база данных поднимется
+          sleep 10
+
+      # 5. Запускаем тесты внутри web-контейнера
+      - name: Run Django tests
+        run: |
+          docker-compose exec web python manage.py test
+
+      # 6. Останавливаем контейнеры после тестов
+      - name: Tear down
+        run: |
+          docker-compose down
