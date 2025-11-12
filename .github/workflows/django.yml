@@ -28,16 +28,16 @@ jobs:
       # 4. Собираем и поднимаем контейнеры
       - name: Build and run Docker Compose
         run: |
-          docker-compose -f docker-compose.yml up -d --build
+          docker compose -f docker compose.yml up -d --build
           # Ждем, пока база данных поднимется
           sleep 10
 
       # 5. Запускаем тесты внутри web-контейнера
       - name: Run Django tests
         run: |
-          docker-compose exec web python manage.py test
+          docker compose exec web python manage.py test
 
       # 6. Останавливаем контейнеры после тестов
       - name: Tear down
         run: |
-          docker-compose down
+          docker compose down
