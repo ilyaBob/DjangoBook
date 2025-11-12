@@ -1,0 +1,24 @@
+[flake8]
+# Игнорируемые файлы и папки
+exclude =
+    venv,
+    env,
+    .venv,
+    __pycache__,
+    migrations,
+    database,
+    manage.py
+
+# Максимальная длина строки
+max-line-length = 100
+
+# Игнорируем правила, конфликтующие с Black и Django
+ignore =
+    W503,
+    E203
+
+# Расширения для Django
+enable-extensions = DJ
+
+# Проверка сложности функций
+max-complexity = 10
