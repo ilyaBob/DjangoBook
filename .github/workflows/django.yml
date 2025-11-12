@@ -31,7 +31,7 @@ jobs:
 
       - name: Bring up containers
         run: |
-          docker compose -f docker-compose.yml up -d
+          docker compose --env-file /dev/null -f docker-compose.yml up -d
           sleep 10   # ждём поднятия Postgres
         env:
           POSTGRES_USER: username
