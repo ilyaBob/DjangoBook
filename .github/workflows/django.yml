@@ -28,7 +28,7 @@ jobs:
       # 4. Собираем и поднимаем контейнеры
       - name: Build and run Docker Compose
         run: |
-          docker compose -f docker compose.yml up -d --build
+          docker compose -f docker-compose.yml up -d --build
           # Ждем, пока база данных поднимется
           sleep 10
 
