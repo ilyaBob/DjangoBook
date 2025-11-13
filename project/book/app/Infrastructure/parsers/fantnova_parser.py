@@ -6,7 +6,7 @@ from ...Application.dto import ParsedBookDTO
 
 class FantNovaParser:
 
-    domain = 'https://z4.fantnova.com'
+    domain = 'https://z5.fantnova.com'
 
     def parse(self, url: str) -> ParsedBookDTO:
         html = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}).text

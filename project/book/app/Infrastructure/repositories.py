@@ -1,11 +1,15 @@
 from dataclasses import asdict
 from typing import TypeVar, Type, Generic
 
+from django.shortcuts import get_object_or_404
+
+from .abstract_repository import AbstractBookRepository
 from .models import Book, Author, Reader, Category, Cycle
 from ..Application import dto
 from ..Domain import entities
 
 T = TypeVar("T")
+
 
 class BaseRepository(Generic[T]):
     model: Type[T] = None
@@ -28,7 +32,7 @@ class BaseRepository(Generic[T]):
         return model
 
 
-class BookRepository:
+class BookRepository(AbstractBookRepository):
     def index(self) -> list[entities.Book]:
         return list(Book.published.all())
 
@@ -51,6 +55,15 @@ class BookRepository:
         book.save()
 
         return book
+
+    def get_by_slug(self, slug: str) -> Book:
+        return get_object_or_404(
+            Book.objects.select_related('author', 'cycle', 'reader'),
+            slug=slug
+        )
+
+    def get_category(self, book: Book) -> list[entities.Category]:
+        return list(book.category.all())
 
 
 class AuthorRepository(BaseRepository):

@@ -1,21 +1,21 @@
 from django.core.paginator import Paginator
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from ..forms import BookForm
 from ...Application.dto import CreateBookDTO
 from ...Application.services import BookService
-from ...Infrastructure.models import Book
+from ...Infrastructure.cached_repository import CacheBookRepository
 from ...Infrastructure.repositories import BookRepository
 
-repo = BookRepository()
-book_service = BookService(repo)
+repo = CacheBookRepository(BookRepository())
+service = BookService(repo)
 
 
 def index(request):
-    books = book_service.index()
+    books = service.index()
     paginator = Paginator(books, 20)
     page = request.GET.get('page')
     page_data = paginator.get_page(page)
@@ -28,19 +28,7 @@ def index(request):
 
 
 def show(request, slug: str):
-    book = get_object_or_404(
-        Book.objects.select_related('author', 'cycle', 'reader'),
-        slug=slug
-    )
-
-    categories = list(book.category.all())
-
-    data = {
-        'title': book.title,
-        'book': book,
-        'first_category': categories[0],
-        'categories': categories,
-    }
+    data = service.get_book_detail_by_slug(slug)
     return render(request, 'web/book/show.html', data)
 
 
@@ -51,7 +39,7 @@ def store(request):
     try:
         if form.is_valid():
             dto = CreateBookDTO(**form.cleaned_data)
-            book_service.create(dto)
+            service.create(dto)
             return JsonResponse({"success": True, "message": "Книга успешно создана"})
         else:
             return JsonResponse({"success": False, "errors": form.errors.get_json_data()}, status=400)

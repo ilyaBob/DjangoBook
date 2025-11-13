@@ -6,7 +6,7 @@ from ...app.Application.dto import CreateBookDTO
 from ...app.Infrastructure.parsers.fantnova_parser import FantNovaParser
 from ...app.Infrastructure.repositories import AuthorRepository, ReaderRepository, CycleRepository, CategoryRepository
 from ...app.Interfaces.forms import BookForm
-from ...app.Interfaces.views.book_views import book_service
+from ...app.Interfaces.views.book_views import service
 
 repo_author = AuthorRepository()
 repo_reader = ReaderRepository()
@@ -65,7 +65,7 @@ class Command(BaseCommand):
 
                     if form.is_valid():
                         dto = CreateBookDTO(**form.cleaned_data)
-                        book_service.create(dto)
+                        service.create(dto)
                         self.stdout.write(self.style.SUCCESS(f"Книга успешно создана"))
                     else:
                         raise ValueError(f"Ошибка валидации формы: {form.errors.get_json_data()}")
