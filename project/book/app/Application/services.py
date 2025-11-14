@@ -3,8 +3,8 @@ from django.db import transaction
 from .dto import CreateBookDTO
 from ..Domain import entities
 from ..Domain.exceptions import CreateBookException
-from ..Infrastructure.abstract_repository import AbstractBookRepository
-from ..Infrastructure.repositories import BookRepository, BaseRepository
+from ..Infrastructure.Book.abstract_repository import AbstractRepository
+from ..Infrastructure.base_repository import BaseRepository
 
 
 class BaseService:
@@ -16,7 +16,7 @@ class BaseService:
 
 
 class BookService:
-    def __init__(self, book_repo: AbstractBookRepository):
+    def __init__(self, book_repo: AbstractRepository):
         self.repo = book_repo
 
     def index(self) -> list[entities.Book]:

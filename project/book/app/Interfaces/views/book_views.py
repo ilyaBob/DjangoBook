@@ -7,10 +7,10 @@ from django.views.decorators.http import require_POST
 from ..forms import BookForm
 from ...Application.dto import CreateBookDTO
 from ...Application.services import BookService
-from ...Infrastructure.cached_repository import CacheBookRepository
-from ...Infrastructure.repositories import BookRepository
+from book.app.Infrastructure.Book.cached_repository import CacheBookRepository
+from ...Infrastructure.Book.repository import Repository
 
-repo = CacheBookRepository(BookRepository())
+repo = CacheBookRepository(Repository())
 service = BookService(repo)
 
 

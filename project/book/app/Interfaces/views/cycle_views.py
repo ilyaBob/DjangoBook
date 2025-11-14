@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST
 from ..forms import CycleForm
 from ...Application.dto import CreateCycleDTO
 from ...Application.services import CycleService
-from ...Infrastructure.repositories import CycleRepository
+from ...Infrastructure.Cycle.repository import Repository as CycleRepository
 
 repo = CycleRepository()
 service = CycleService(repo)

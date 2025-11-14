@@ -5,9 +5,9 @@ from django.views.decorators.http import require_POST
 from ..forms import AuthorForm
 from ...Application.dto import CreateAuthorDTO
 from ...Application.services import AuthorService
-from ...Infrastructure.repositories import AuthorRepository
+from ...Infrastructure.Author.repository import Repository
 
-repo = AuthorRepository()
+repo = Repository()
 service = AuthorService(repo)
 
 

@@ -1,5 +1,9 @@
 from django.test import TestCase
-from ..app.Infrastructure.models import Book, Author, Cycle, Reader, Category
+from book.app.Infrastructure.Book.model import Book
+from book.app.Infrastructure.Category.model import Category
+from book.app.Infrastructure.Author.model import Author
+from book.app.Infrastructure.Reader.model import Reader
+from book.app.Infrastructure.Cycle.model import Cycle
 from ..app.Domain.value_objects import Slug
 
 

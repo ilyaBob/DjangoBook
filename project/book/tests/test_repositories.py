@@ -1,10 +1,16 @@
 from django.test import TestCase
 
 from ..app.Application.dto import CreateBookDTO
-from ..app.Infrastructure.models import Book, Author, Reader, Category, Cycle
-from ..app.Infrastructure.repositories import (
-    BookRepository, AuthorRepository, CategoryRepository
-)
+
+from book.app.Infrastructure.Book.model import Book
+from book.app.Infrastructure.Category.model import Category
+from book.app.Infrastructure.Author.model import Author
+from book.app.Infrastructure.Reader.model import Reader
+from book.app.Infrastructure.Cycle.model import Cycle
+
+from book.app.Infrastructure.Book.repository import Repository as BookRepository
+from book.app.Infrastructure.Author.repository import Repository as AuthorRepository
+from book.app.Infrastructure.Category.repository import Repository as CategoryRepository
 
 
 class BaseRepositoryTestCase(TestCase):

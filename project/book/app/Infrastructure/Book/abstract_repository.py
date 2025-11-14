@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 
 from book.app.Application import dto
 from book.app.Domain import entities
-from book.app.Infrastructure.models import Book
+from book.app.Infrastructure.Book.model import Book
 
 
-class AbstractBookRepository(ABC):
+class AbstractRepository(ABC):
 
     @abstractmethod
     def index(self) -> list[entities.Book]:

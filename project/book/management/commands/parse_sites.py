@@ -4,7 +4,10 @@ from django.db import transaction
 
 from ...app.Application.dto import CreateBookDTO
 from ...app.Infrastructure.parsers.fantnova_parser import FantNovaParser
-from ...app.Infrastructure.repositories import AuthorRepository, ReaderRepository, CycleRepository, CategoryRepository
+from ...app.Infrastructure.Author.repository import Repository as AuthorRepository
+from ...app.Infrastructure.Reader.repository import Repository as ReaderRepository
+from ...app.Infrastructure.Cycle.repository import Repository as CycleRepository
+from ...app.Infrastructure.Category.repository import Repository as CategoryRepository
 from ...app.Interfaces.forms import BookForm
 from ...app.Interfaces.views.book_views import service
 
@@ -24,7 +27,7 @@ class Command(BaseCommand):
         parser = FantNovaParser()
 
 
-        urls =  parser.get_urls_with_page('https://z4.fantnova.com/page/4/')
+        urls =  parser.get_urls_with_page('https://z5.fantnova.com/page/4/')
 
         for url in urls:
             book_data = parser.parse(url)

@@ -5,9 +5,9 @@ from django.views.decorators.http import require_POST
 from ..forms import ReaderForm
 from ...Application.dto import CreateReaderDTO
 from ...Application.services import ReaderService
-from ...Infrastructure.repositories import ReaderRepository
+from ...Infrastructure.Reader.repository import Repository
 
-repo = ReaderRepository()
+repo = Repository()
 service = ReaderService(repo)
 
 

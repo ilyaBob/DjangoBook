@@ -1,6 +1,6 @@
 from django import template
 
-from book.app.Infrastructure.models import Category
+from book.app.Infrastructure.Category.model import Category
 
 register = template.Library()
 

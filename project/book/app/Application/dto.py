@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from typing import Optional
 
 from book.app.Domain.entities import Cycle
-from book.app.Infrastructure.models import Author, Reader
+from book.app.Infrastructure.Author.model import Author
+from book.app.Infrastructure.Reader.model import Reader
 
 
 @dataclass

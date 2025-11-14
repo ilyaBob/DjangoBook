@@ -1,14 +1,14 @@
 from django.core.cache import cache
 
-from .abstract_repository import AbstractBookRepository
-from .repositories import BookRepository
-from ..Application import dto
-from ..Domain import entities
-from ..Infrastructure.models import Book
+from .abstract_repository import AbstractRepository
+from .repository import Repository
+from .model import Book
+from ...Application import dto
+from book.app.Domain import entities
 
 
-class CacheBookRepository(AbstractBookRepository):
-    def __init__(self, repo: BookRepository):
+class CacheBookRepository(AbstractRepository):
+    def __init__(self, repo: Repository):
         self.repo = repo
 
     def index(self) -> list[entities.Book]:
@@ -37,6 +37,6 @@ class CacheBookRepository(AbstractBookRepository):
             return cache.get(key)
 
         data = self.repo.get_category(book)
-        # cache.set(key, data, 3600)
+        cache.set(key, data, 3600)
 
         return data
